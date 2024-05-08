@@ -1,0 +1,67 @@
+@use "../../foundation/base";
+
+.p-search {
+    width: 85.8vw;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 40px;
+    box-sizing: border-box;
+
+    @include base.breakpointTablet {
+        width: 65.4vw;
+        justify-content: center;
+    }
+
+    @include base.breakpointPc {
+        width: 28vw;
+        margin: auto;
+        justify-content: space-between;
+        margin-right: 1.6vw;
+        margin-top: 20px;
+        }
+
+    &__input {
+        width: 57.6vw;
+        height: 46px;
+        border-radius: 10px;
+        border: 1px solid base.$color--gray;
+        margin-right: 4.2vw;
+        background-color: base.$color--white;
+        padding: 10px 11px;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: black;
+        line-height: 6.3vw;
+
+        @include base.breakpointTablet {
+            width: 47.4vw;
+            margin-right: 1.6vw;
+        }
+
+        @include base.breakpointPc {
+            width: 20vw;
+            margin-right: 0.7vw;
+        }
+    }
+
+    &__set {
+        width: 24vw;
+        height: 46px;
+        border-radius: 10px;
+        border: 1px solid base.$color--gray;
+        background-color: #ebe6e2;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: base.$color--gray;
+
+        @include base.breakpointTablet {
+            width: 16vw;            
+        }
+
+        @include base.breakpointPc {
+            width: 7vw;
+        }
+    }
+}

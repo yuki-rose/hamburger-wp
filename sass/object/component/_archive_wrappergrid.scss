@@ -1,0 +1,158 @@
+@use "../../foundation/base";
+
+.c-archive__wrapperGrid {
+    display: grid;
+    gap: 5vw;
+    grid-template-columns: 1fr;
+    margin: 5vw;
+    
+    @include base.breakpointTablet {
+        margin-right: 2.4vw;
+        margin-left: 5.1vw;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2.4vw;
+        margin-bottom: 12.7vw;
+    }
+
+    @include base.breakpointPc {
+        width: 80vw;
+        gap: 1.5vw;
+        margin: 5.2vw;
+    }
+
+    &-item {
+        width: 89.6vw;
+
+        @include base.breakpointTablet {
+            width: 90vw;
+            display: flex;
+        }
+
+        @include base.breakpointPc {
+            width: 70.4vw;
+        }
+
+        img {
+            height: 61.4vw;
+            width: 100%;
+            object-fit: cover;
+
+            @include base.breakpointTablet {
+                height: auto;
+                width: 45vw;
+                object-position: 35%;
+                flex-direction: row;
+            }
+
+            @include base.breakpointPc {
+                width: 35.2vw;
+            }
+        }
+    }
+
+    &-ttl {
+        font-size: 2.0rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-top: 4.4vw;
+        margin-left: 0.3vw;
+
+        @include base.breakpointTablet {
+            margin: 0;
+            position: absolute;
+            top: 31px;
+        }
+
+        @include base.breakpointPc {
+            font-size: 3.6rem;
+            position: absolute;
+            top: 56px;
+        }
+    }
+
+    &-txtbox {
+        height: auto;
+        background-color: #3C2B1C;
+        color: #ffffff;
+        text-align: left;
+        padding: 4.2vw;
+
+        @include base.breakpointTablet {
+            padding-left: 4.1vw;
+            width: 45vw;
+            position: relative;
+            flex-direction: row;
+        }
+
+        @include base.breakpointPc {
+            padding: 3.2vw;
+            width: 35.2vw;
+            padding-bottom: 3.1vw;
+            padding-right: 5.4vw;
+            padding-top: 6.0vw;
+        }
+    }
+
+    &-txt {
+        color: #ffffff;
+        font-size: 1.6rem;
+        font-weight: 400;
+
+        @include base.breakpointTablet {
+            line-height: 23.76px;
+        }
+
+        @include base.breakpointPc {
+            font-size: 1.6rem;
+        }
+
+        &__ttl {
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 5.6vw;
+            margin-bottom: 1.8vw;
+
+            @include base.breakpointTablet {
+                margin-bottom: 0.8vw;
+            }
+
+            @include base.breakpointPc {
+                margin-bottom: 13px;
+                font-size: 2.4rem;
+                margin-top: 2.3vw;
+            }
+        }
+    }
+}
+
+.c-detail__btn {
+    color: base.$color--gray;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: #ffffff;
+    width: 43.5vw;
+    height: 11.3vw;
+    border-radius: 20px;    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10.6vw;
+    margin-bottom: 11.6vw;
+
+    @include base.breakpointTablet {
+        width: 19.5vw;
+        height: 5vw;
+        margin-top: 5.3vw;
+        margin-bottom: 0.5vw;
+    }
+
+    @include base.breakpointPc {
+        margin-top: 3.1vw;
+        border-radius: 50px;
+        width: 15.2vw;
+        height: 3.9vw;
+        margin-bottom: 0;
+    }
+}

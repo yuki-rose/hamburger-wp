@@ -1,0 +1,154 @@
+@use "../../foundation/base";
+
+.p-main__wrapperGrid {
+    display: grid;
+    gap: 5vw;
+    grid-template-columns: 1fr;
+    margin: 5vw;
+    
+    @include base.breakpointTablet {
+        margin: 5vw;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5vw;
+        margin-bottom: 5vw;
+    }
+
+    @include base.breakpointPc {
+        width: 80vw;
+        gap: 0;
+    }
+
+    &-item {
+        position: relative;
+        background-size: cover;
+        display: flex;
+
+        @include base.breakpointTablet {
+            width: 42vw;
+        }
+
+        @include base.breakpointPc {
+            width: 32.1vw;
+        }
+    }
+
+    &-ttl {
+        font-size: 4.1rem;
+        font-weight: 700;
+        color: #eaeaea;
+        position: absolute;
+        top: 3.4vw;
+        left: 4vw;
+
+        @include base.breakpointTablet {
+            font-size: 4.4rem;
+            position: absolute;
+            top: 1.6vw;
+            left: 1.3vw;
+        }
+
+        @include base.breakpointPc {
+            font-size: 8.0rem;
+            position: absolute;
+            top: 1.4vw;
+            left: 1.1vw;
+        }
+
+        &::after {
+            content: "";
+            height: 4px;
+            width: 33.89px;
+            background-color: #ffffff;
+            display: block;
+
+            @include base.breakpointTablet {
+                width: 35.94px;
+                margin-top: 8.57px;
+                margin-left: 4.12px;
+            }
+
+            @include base.breakpointPc {
+                width: 63px;
+                margin-left: 7.5px;
+            }
+        }
+    }
+
+    &-txtboxset {
+        padding: 4.2vw;
+        margin-top: 71.45vw;
+
+        @include base.breakpointTablet {
+            padding: 1.9vw;
+            margin-top: 40.29vw;
+        }
+
+        @include base.breakpointPc {
+            padding: 1vw;
+            margin-top: 31.16vw;
+        }
+    }
+
+    &-txtbox {
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: left;
+        padding: 16px;
+        margin-top: 4vw;
+
+        @include base.breakpointTablet {
+            padding-right: 15px;
+            margin-top: 2vw;
+        }
+
+        @include base.breakpointPc {
+            padding: 1vw;
+            margin-top: 1vw;
+            padding-bottom: 14px;
+        }
+    }
+
+    &-txt {
+        color: #3c2a10;
+        font-size: 1.6rem;
+        font-weight: 400;
+        
+        @include base.breakpointTablet {
+            font-size: 1.4rem;
+        }
+
+        @include base.breakpointPc {
+            font-size: 1.6rem;
+        }
+
+        &__ttl {
+            color: #3c2a10;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-top: -5px;
+            margin-bottom: 8px;
+
+            @include base.breakpointTablet {
+                font-size: 2.4rem;
+                margin-bottom: 16px;
+            }
+
+            @include base.breakpointPc {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+a {
+    align-self: flex-end;
+}
+
+.eatin-bg {
+    background-image: url(../../../images/473d814b175bd517b56eb309f2958725.jpg);
+}
+
+.takeout-bg {
+    background-image: url(../../../images/three-burgers-on-brown-wooden-tray-between-white-ceramic-1841108.jpg);
+}
+

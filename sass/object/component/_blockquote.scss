@@ -1,0 +1,47 @@
+@use "../../foundation/base";
+
+.c-blockquote {
+    &box {
+        background-color: #f5f5f5;
+        margin: 5.3vw;
+        margin-top: 3.5vw;
+        padding-top: 8vw;
+        padding-left: 5.3vw;
+        padding-right: 4.2vw;
+        padding-bottom: 7.2vw;
+        color: base.$color--brown;
+        font-size: 1.6rem;
+        font-weight: 400;
+
+        @include base.breakpointTablet {
+            margin: 7.1vw;
+            margin-top: 0;
+            padding: 5.9xw;
+            padding-right: 6.7vw;
+            padding-top: 5vw;
+            padding-right: 5vw;
+
+            p {
+                margin-top: 7.3vw;
+
+                @include base.breakpointPc {
+                    margin-top: 3.1vw;
+                }
+            }
+        }
+
+        @include base.breakpointPc {
+            width: 70.8vw;
+            margin: 5.2vw;
+            margin-top: 0;
+            margin-bottom: 3.1vw;
+            padding: 2.6vw;
+            padding-right: 3.1vw;
+        }
+    }
+}
+
+.source {
+    color: #4a6c9b;
+    text-decoration: underline;
+}

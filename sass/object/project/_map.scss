@@ -1,0 +1,74 @@
+@use "../../foundation/base";
+
+.p-map {
+    width: 100%;
+    background-image: linear-gradient(to bottom , rgba(0,0,0,0.4029), rgba(0,0,0,0.4029)), url(../../../images/map.png);
+    background-size: cover;
+
+    @include base.breakpointPc {
+        width: 80%;
+    }
+
+    &-ttl {
+        font-size: 3.0rem;
+        font-weight: 700;
+        color: #ffffff;
+        width: 240px;
+        height: 45px;
+
+        @include base.breakpointPc {
+            font-size: 3.6rem;
+            margin-top: 4.5vw;
+            width: 288px;
+            height: 53px;
+        }
+
+        &::after {
+            content: "";
+            height: 2px;
+            width: 75px;
+            background-color: #ffffff;
+            display: block;
+            margin-top: 15px;
+
+            @include base.breakpointPc {
+                margin-top: 50.5px;
+                margin-left: 0.5px;
+            }
+        }
+    }
+
+    &-txt {
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 33px;
+        height: auto;
+        margin-top: 29px;
+
+        @include base.breakpointPc {
+            width: 36vw;
+            font-size: 1.6rem;
+            margin-top: 109px;
+        }
+    }
+
+    &-txtset {
+        width: 100%;
+        padding: 40px;
+        padding-bottom: 15.2vw;
+        background-image: linear-gradient(180deg, rgba(0,0,0,0.2855) 60%,rgba(0,0,0,0) 60%);
+    
+        @include base.breakpointTablet {
+            padding: 5vw;
+            background-image: linear-gradient(180deg, rgba(0,0,0,0.2855) 60%,rgba(0,0,0,0.2855) 60%);
+        }
+        @include base.breakpointPc {
+            padding-top: 4.4vw;
+            padding-left: 6.1vw;
+            padding-bottom: 3.9vw;
+            padding-right: 38.3vw;
+            background-image: linear-gradient(90deg, rgba(0,0,0,0.2855) 61.1%,rgba(0,0,0,0) 61.1%);
+        }
+    }
+}

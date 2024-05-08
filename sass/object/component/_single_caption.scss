@@ -1,0 +1,67 @@
+@use "../../foundation/base";
+
+.c-single__caption {
+    margin: 5.3vw;
+    margin-top: 0;
+
+    @include base.breakpointTablet {
+        margin: 7.1vw;
+        margin-bottom: 0;
+    }
+
+    @include base.breakpointPc {
+        margin: 5.2vw;
+        margin-top: -2.5vw;
+        margin-bottom: 0;
+    }
+
+    &set {
+        display: flex;
+        margin-bottom: 8vw;
+        gap: 2.6vw;
+
+        @include base.breakpointTablet {
+            gap: 2.5vw;
+            margin-bottom: 14vw;
+
+            &:nth-child(2) {
+                margin-bottom: 7.3vw;
+
+                @include base.breakpointPc {
+                    margin-bottom: 3.1vw;
+                }
+            }
+        }
+
+        @include base.breakpointPc {
+            width: 80%;
+            gap: 2vw;
+            margin-bottom: 3.1vw;
+        }
+
+        img {
+            width: 38.4vw;
+            height: auto;
+            object-fit: contain;
+            object-position: top;
+
+            @include base.breakpointPc {
+                width: 30.2vw;
+                height: 358px;
+            }
+        }
+    }
+
+    &txt {
+        color: base.$color--brown;
+        font-size: 1.6rem;
+        font-weight: 400;
+        gap: 2.6vw;
+        margin-bottom: 30px;
+
+        @include base.breakpointTablet {
+            margin-bottom: 0vw;
+            gap: 2vw;
+        }
+    }
+}

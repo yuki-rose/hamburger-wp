@@ -1,0 +1,37 @@
+@use "../../foundation/base";
+
+.c-single__wrapperGrid {
+    display: grid;
+    gap: 5.3vw;
+    grid-template-columns: 1fr;
+
+    @include base.breakpointTablet {
+        gap: 1.9vw;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 7.1vw;
+        margin-right: 7.1vw;
+    }
+
+    @include base.breakpointPc {
+        width: 70.5%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1vw;
+        margin-left: 5.2vw;
+        margin-right: 5.2vw;
+    }
+
+    img {
+        width: 89.3vw;
+        margin-left: 5.3vw;
+        margin-right: 5.3vw;
+
+        @include base.breakpointTablet {
+            width: 41.8vw;
+            margin: auto;
+        }
+
+        @include base.breakpointPc {
+            width: 100%;
+        }
+    }
+}

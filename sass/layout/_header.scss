@@ -1,0 +1,37 @@
+@use "../foundation/base";
+
+
+.l-header {
+    height: 215px;
+    background-color: #fff7ef;
+
+    @include base.breakpointTablet {
+    height: 217px;
+    }
+
+    @include base.breakpointPc {
+        width: 80%;
+    }
+
+    &__ttl {
+        height: 47px;
+        color: base.$color--gray;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+        font-weight: 700;
+
+        @include base.breakpointTablet {
+            margin-top: -20px;
+        }
+
+        @include base.breakpointPc {
+            height: 75px;
+            font-size: 6.4rem;
+            justify-content: space-between;
+            padding-top: 66px;
+            margin-left: 65px;
+        }
+    }
+}

@@ -1,0 +1,210 @@
+@use "../../foundation/base";
+
+.c-main__archive-ttlset {
+    height: 78px;
+    position: absolute;
+    top: 106px;
+    left: 9.8vw;
+
+    @include base.breakpointTablet {
+        height: 70px;
+        position: absolute;
+        top: 107px;
+        left: 10.3vw;
+        display: flex;
+        flex-direction: row;
+    }
+
+    @include base.breakpointPc {
+        position: absolute;
+        top: 83px;
+        left: 4.4vw;
+    }
+}
+
+
+.c-main__archivettl {
+    color: base.$color--white;
+    height: 43px;
+    font-size: 3.6rem;
+    font-weight: 700;
+
+    @include base.breakpointTablet {
+        font-size: 6.0rem;
+    }
+
+    @include base.breakpointPc {
+        font-size: 6.0rem;
+        height: 70px;
+    }
+
+    &-sub {
+        color: base.$color--white;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 12px;
+
+        @include base.breakpointTablet {
+            margin-top: 35px;
+            margin-left: 2.3vw;
+        }
+
+        @include base.breakpointPc {
+            margin-left: 1vw;
+            margin-top: 40px;
+        }
+    }
+}
+
+.c-mainvisual__archive {
+    height: 285px;
+    width: 100%;
+    position: relative;
+
+    &::before {
+        content: "";
+        height: 285px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 100;
+        left: 100;
+
+        @include base.breakpointPc {
+            height: 239px;
+        }
+    }
+
+    @include base.breakpointPc {
+        height: 239px;
+        width: 80%;
+    }
+
+    img {
+        height: 285px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 100;
+        object-position: left;
+
+        @include base.breakpointPc {
+            height: 239px;
+            content: url("/images/three-burgers-on-brown-wooden-tray-between-white-ceramic-1841108.png");
+        }
+
+    }
+}
+
+.c-main__singlettl {
+    color: base.$color--white;
+    height: 43px;
+    font-size: 3.6rem;
+    font-weight: 700;
+    position: absolute;
+    top: 93px;
+    left: 6.9vw;
+
+    @include base.breakpointTablet {
+        font-size: 6.0rem;
+        position: absolute;
+        top: 25.7vw;
+        left: 10.3vw;
+    }
+
+    @include base.breakpointPc {
+        font-size: 6.0rem;
+        height: 70px;
+        position: absolute;
+        top: 213px;
+        left: 4.4vw;
+    }
+}
+
+.c-mainvisual__single {
+    height: 225px;
+    width: 100%;
+    position: relative;
+
+    @include base.breakpointTablet {
+        height: 505px;
+    }
+
+    @include base.breakpointPc {
+        width: 80%;
+    }
+
+    img {
+        height: 225px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 100;
+        object-position: left;
+
+        @include base.breakpointTablet {
+            height: 505px;
+        }
+
+        @include base.breakpointPc {
+            height: 500px;
+            content: url("/images/ham-burger-with-vegetables-pc1639557.jpg");
+        }
+
+    }
+}
+
+.c-main__pagettl {
+    color: base.$color--white;
+    height: 43px;
+    font-size: 3.6rem;
+    font-weight: 700;
+    position: absolute;
+    top: 93px;
+    left: 12vw;
+
+    @include base.breakpointTablet {
+        font-size: 6.0rem;
+        position: absolute;
+        top: 25.7vw;
+        left: 10.3vw;
+    }
+
+    @include base.breakpointPc {
+        font-size: 6.0rem;
+        height: 70px;
+        position: absolute;
+        top: 213px;
+        left: 4.4vw;
+    }
+}
+
+.c-mainvisual__page {
+    height: 225px;
+    width: 100%;
+    position: relative;
+
+    @include base.breakpointTablet {
+        height: 505px;
+    }
+
+    @include base.breakpointPc {
+        width: 80%;
+    }
+
+    img {
+        height: 225px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 100;
+        object-position: left;
+
+        @include base.breakpointTablet {
+            height: 505px;
+        }
+
+        @include base.breakpointPc {
+            height: 500px;
+            content: url("/images/black-steel-lamp-post-pc1070945.jpg");
+        }
+
+    }
+}

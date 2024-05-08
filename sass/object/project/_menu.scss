@@ -1,0 +1,134 @@
+@use "../../foundation/base";
+
+.p-menu {
+    display: flex;
+    justify-content: flex-end;
+
+    &__btn {
+        width: 51px;
+        height: 23px;
+        margin-top: 8px;
+        margin-right: 8px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: base.$color--gray;
+
+        @include base.breakpointTablet {
+            width: 87px;
+            height: 40px;
+            margin-top: 20px;
+            margin-right: 25px;
+            font-size: 3.4rem;
+        }
+
+        @include base.breakpointPc {
+            margin-top: 84px;
+            margin-left: 2vw;
+            margin-bottom: 90px;
+        }
+    }
+
+    @include base.breakpointPc {
+        display: none;
+    }
+}
+
+.p-menu__btn-pc {
+    display: none;
+
+    @include base.breakpointPc {
+        display: inherit;
+    }
+}
+
+.p-menu__closebtn {
+    background-color: base.$color--gray;
+    content: "";
+    width: 42.25px;
+    height: 6px;
+    margin-top: 20px;
+    margin-right: 3px;
+    margin-left: auto;
+    display: block;
+    text-align: right;
+    transform: rotate(-45deg);
+    
+    @include base.breakpointTablet {
+        margin-top: 40px;
+        margin-right: 25px;
+    }
+
+    @include base.breakpointPc {
+        display: none;
+    }
+
+    &::after {
+        background-color: base.$color--gray;
+        content: "";
+        width: 42.25px;
+        height: 6px;
+        margin-top: 0px;
+        margin-right: 32px;
+        margin-left: auto;
+        display: block;
+        text-align: right;
+        transform: rotate(90deg);
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        background-color: aqua;
+        opacity: 0;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: -20px;
+        right: 5px;
+        transform: rotate(45deg);
+    }
+}
+
+.menuList {
+    margin-left: 12vw;
+    margin-top: 118px;
+
+    @include base.breakpointTablet {
+        margin-left: 5vw;
+        margin-top: 178px;
+    }
+
+    @include base.breakpointPc {
+        margin-left: 2vw;
+        margin-top: 118px;
+    }
+}
+
+.mainMenu {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 35.64px;
+    margin-bottom: 40px;
+    margin-top: 60px;
+
+    @include base.breakpointTablet {
+        margin-bottom: 32px;
+        margin-top: 48px;
+    }
+}
+
+.menuItem {
+    font-size: 2.0rem;
+    font-weight: 400;
+    line-height: 29.7px;
+    margin-left: 5vw;
+    margin-bottom: 20px;
+
+    @include base.breakpointTablet {
+        margin-left: 2vw;
+    }
+
+    @include base.breakpointPc {
+        margin-left: 1vw;
+    }
+}

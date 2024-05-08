@@ -1,0 +1,61 @@
+@use "../../foundation/base";
+
+table {
+    margin: 5.3vw;
+    margin-top: 8vw;
+    border: 1px solid base.$color--gray;
+    border-collapse: collapse;
+    width: 89.3vw;
+
+    @include base.breakpointTablet {
+        margin: 7.1vw;
+        width: 85.6vw;
+    }
+
+    @include base.breakpointPc {
+        width: 70.4vw;
+        margin: 5.2vw;
+        margin-top: -2.6vw;
+    }
+    
+    td {
+        height: 77px;
+        padding-left: 6.2vw;
+        border: 1px solid base.$color--gray;
+        color: base.$color--brown;
+        font-size: 1.6rem;
+        font-weight: 400;
+
+        @include base.breakpointTablet {
+            padding-left: 3.5vw;
+        }
+
+        @include base.breakpointPc {
+            padding-left: 1.5vw;
+        }
+    }
+}
+
+.td-l {
+    width: 41.8%;
+
+    @include base.breakpointTablet {
+        width: 30.1%;
+    }
+
+    @include base.breakpointPc {
+        width: 30.5%;
+    }
+}
+
+.td-r {
+    width: 58.2%;
+
+    @include base.breakpointTablet {
+        width: 69.9%;
+    }
+
+    @include base.breakpointPc {
+        width: 69.5%;
+    }
+}

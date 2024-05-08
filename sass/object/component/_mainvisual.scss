@@ -1,0 +1,48 @@
+@use "../../foundation/base";
+
+.c-mainvisual {
+    height: 285px;
+    width: 100%;
+    position: relative;
+
+    @include base.breakpointPc {
+        height: 530px;
+        width: 80%;
+    }
+
+    img {
+        height: 285px;
+        width: 100%;
+        object-fit: cover;
+
+        @include base.breakpointPc {
+            height: 530px;
+        }
+    }
+
+}
+
+.c-main__sitettl {
+    color: base.$color--white;
+    height: 53px;
+    width: 216px;
+    font-size: 3.6rem;
+    font-weight: 700;
+    position: absolute;
+    top: 122px;
+    left: 25px;
+
+    @include base.breakpointTablet {
+        position: absolute;
+        top: 122px;
+        left: 86px;
+    }
+
+    @include base.breakpointPc {
+        font-size: 4.0rem;
+        height: 59px;
+        width: 240px;
+        position: absolute;
+        top: 234px;
+    }
+}

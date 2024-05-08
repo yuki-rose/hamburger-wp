@@ -1,0 +1,61 @@
+@use "../../foundation/base";
+
+.c-single__libox {
+    margin: 5.3vw;
+    margin-top: 8.8vw;
+    margin-bottom: 15.2vw;
+
+    @include base.breakpointTablet {
+        margin: 13.1vw;
+        margin-top: 7.3vw;
+        margin-bottom: -0.5vw;
+    }
+
+    @include base.breakpointPc {
+        margin: 7.8vw;
+        margin-top: 2.8vw;
+        margin-bottom: 2.9vw;
+    }
+
+    ul {
+        margin-bottom: 4.5vw;
+
+        @include base.breakpointTablet {
+            margin-bottom: 2vw;
+        }
+
+        @include base.breakpointPc {
+            margin-bottom: 0.8vw;
+        }
+
+        &:nth-child(2) {
+            margin-left: 4.8vw;
+
+            @include base.breakpointTablet {
+                margin-left: 2.2vw;
+            }
+
+            @include base.breakpointPc {
+                margin-left: 0.9vw;
+            }
+        }
+
+        li {
+        color: base.$color--brown;
+        font-size: 1.6rem;
+        font-weight: 400;
+        }
+    }
+}
+
+.c-single__lino {
+    padding-left: 5.3vw;
+
+    @include base.breakpointTablet {
+        padding-left: 1.7vw;
+    }
+
+    @include base.breakpointPc {
+        padding-left: 1vw;
+    }
+}
