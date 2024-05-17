@@ -1,16 +1,17 @@
-<?php get_header(); //header.phpを読み込むテンプレートタグ（インクルードタグ ?> 
+<?php get_header(); //header.phpを読み込み ?> 
 
-<?php get_sidebar(); //siderbar.phpを読み込むテンプレートタグ ?>
+<?php get_sidebar(); //siderbar.phpを読み込み ?>
 
-    <main class="l-main">
-        <figure class="c-mainvisual">
-            <img src="./images/mainvisual-pc@2x.jpg" alt="ハンバーガーの写真">
-            <figcaption class="c-main__sitettl">ダミーサイト</figcaption>
-        </figure>
+<main class="l-main">
+    <figure class="c-mainvisual">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/mainvisual-pc@2x.jpg" alt="ハンバーガーの写真">
+        <figcaption class="c-main__sitettl">ダミーサイト</figcaption>
+    </figure>
+    
 
         <div class="p-main__wrapperGrid">
             <div class="p-main__wrapperGrid-item takeout-bg">
-                <a href="./page.html">
+                <a href="<?php echo esc_url(home_url('/')); ?>page/">
                 <h2 class="p-main__wrapperGrid-ttl">Take Out</h2>
                 <div class="p-main__wrapperGrid-txtboxset">
                     <article class="p-main__wrapperGrid-txtbox">
@@ -40,7 +41,7 @@
                 </div></a>
             </div>
             <div class="p-main__wrapperGrid-item eatin-bg">
-                <a href="./page.html">
+                <a href="<?php echo esc_url(home_url('/')); ?>single/">
                 <h2 class="p-main__wrapperGrid-ttl">Eat In</h2>
                 <div class="p-main__wrapperGrid-txtboxset">
                     <article class="p-main__wrapperGrid-txtbox">

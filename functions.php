@@ -13,9 +13,10 @@
         register_nav_menus( array( //メニュー機能の追加
             'topnav' => esc_html__( 'top navigation', 'Hamburger' ), //ローケーション名を登録
             'sidenav' => esc_html__( 'side navigation', 'Hamburger' ),
+            'footernav' => esc_html__( 'footer navigation', 'Hamburger' ),
         ));
-        add_theme_support( 'title-tag' ); //タイトルタグをサポート
-        add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'title-tag' ); //管理画面からタイトルタグの登録可能に
+        add_theme_support( 'post-thumbnails' ); //アイキャッチ画像の有効化
     }
     add_action( 'after_setup_theme', 'custom_theme_support' );
 

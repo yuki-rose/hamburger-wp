@@ -4,7 +4,7 @@
             <button class="p-menu__btn p-menu__btn-pc">Menu</button>
             <button class="p-menu__closebtn"></button>
             <div class="menuList">
-                <h3 class="mainMenu"><a href="./archive.html">バーガー</a></h3>
+                <h3 class="mainMenu"><a href="./archive.php">バーガー</a></h3>
                 <ul class="sideMemu">
                     <li class="menuItem"><a href="./single.html">ハンバーガー</a></li>
                     <li class="menuItem"><a href="./single.html">チーズバーガー</a></li>
