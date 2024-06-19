@@ -4,23 +4,35 @@
 
 <main class="l-main">
 <?php 
-    $args = [ 'src' => '/images/ham-burger-with-vegetables-1639557.jpg', 'alt' => 'ハンバーガーの写真', 'figcap' => 'h1 チーズバーガー' ]; //変数の設定
-    get_template_part( 'parts/mainvisual', 'single', $args ); //mainvisual-top.phpを上記の配列で読み込み ?>
-        <!--<figure class="c-mainvisual__single">
-            <img src="./images/ham-burger-with-vegetables-1639557.jpg" alt="ハンバーガーの写真">
-            <figcaption class="c-main__singlettl">h1 チーズバーガー</figcaption>
-        </figure>-->
+    //メインループの記述
+    if( have_posts() ):
+    while( have_posts() ): the_post(); ?>
 
-        <div class="c-single__txtset">
-            <h2 class="c-single__mainttl">見出しh2</h2>
-            <p class="c-single__txt">Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。</p>
-            <div class="c-single__ttlset">
-                <h2 class="c-single__ttl">見出しh3</h2>
-                <h2 class="c-single__ttl">見出しh4</h2>
-                <h2 class="c-single__ttl">見出しh5</h2>
-                <h2 class="c-single__ttl">見出しh6</h2>
-            </div>
-        </div>
+    <figure class="c-mainvisual__single">
+    <?php //メインビジュアル//
+        if ( has_post_thumbnail()): //サムネイル画像があったら ?>
+            <?php the_post_thumbnail( 'full' ); //サムネイルを表示 ?>
+            <figcaption class="c-main__singlettl"><?php the_title(); ?></figcaption>
+        <?php else://なければ指定画像を表示 ?>
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ham-burger-with-vegetables-1639557.jpg" alt="ハンバーガーの写真">
+            <figcaption class="c-main__singlettl">12345</figcaption>
+        <?php endif; ?>
+    </figure>
+        
+    <div class="c-single__txtset">
+    <?php //記事の内容
+        
+    ?>
+
+        <!--<h2 class="c-single__mainttl">見出しh2</h2>
+        <p class="c-single__txt">Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。Pタグテキスト。</p>
+        <div class="c-single__ttlset">
+            <h3 class="c-single__ttl">見出しh3</h3>
+            <h4 class="c-single__ttl">見出しh4</h4>
+            <h5 class="c-single__ttl">見出しh5</h5>
+            <h6 class="c-single__ttl">見出しh6</h6>
+        </div>-->
+    </div>
 
         <blockquote class="c-blockquotebox">
             <q class="c-blockquotetxt" cite="○○○○○○○○○○○○">Blockquote 引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ引用タグ</q>
@@ -143,6 +155,10 @@
         <div class="c-single__note">
         <strong>boldboldboldboldboldboldbold</strong>
         </div>
+    <?php endwhile;
+        else :?>
+        <p>表示する記事がありません</p>
+    <?php endif; ?>
     </main>
 
     <?php get_footer(); //footer.phpを読み込むテンプレートタグ ?>
