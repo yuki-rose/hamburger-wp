@@ -31,7 +31,7 @@
         wp_enqueue_style( 'roboto', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap', array() ); //GoogleFontsを読み込み
         wp_enqueue_style( 'resscss', get_theme_file_uri( '/css/ress.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
         wp_enqueue_style( 'style', get_theme_file_uri('/style.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
-        wp_enqueue_style( 'style', get_theme_file_uri('/css/hamburger.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
+        wp_enqueue_style( 'hamburger', get_theme_file_uri('/css/hamburger.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
         wp_enqueue_script( 'jquery', get_theme_file_uri('/js/jquery-3.7.1.min.js' ), array(), true ); //jQuery本体読み込み
         wp_enqueue_script( 'mainjs', get_theme_file_uri( '/js/main.js' ), array( 'jquery' ), true ); //JavaScript読み込み
         wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/811b940674.js', array()); //Fontawesomeの読み込み
