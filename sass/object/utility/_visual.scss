@@ -129,16 +129,11 @@
         height: 505px;
     }
 
-    @include base.breakpointPc {
-        width: 80%;
-    }
-
     img {
         height: 225px;
         width: 100%;
         object-fit: cover;
-        opacity: 100;
-        object-position: left;
+        opacity: 1;
 
         @include base.breakpointTablet {
             height: 505px;
@@ -146,7 +141,6 @@
 
         @include base.breakpointPc {
             height: 500px;
-            //content: url("/images/ham-burger-with-vegetables-pc1639557.jpg");
         }
 
     }

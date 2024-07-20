@@ -10,9 +10,7 @@
     }
 
     @include base.breakpointPc {
-        margin: 5.2vw;
-        margin-top: -2.5vw;
-        margin-bottom: 0;
+        margin: 0 5.2vw;
     }
 
     &set {
@@ -34,7 +32,6 @@
         }
 
         @include base.breakpointPc {
-            width: 80%;
             gap: 2vw;
             margin-bottom: 3.1vw;
         }

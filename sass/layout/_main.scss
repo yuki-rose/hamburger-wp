@@ -1,0 +1,9 @@
+@use "../foundation/base";
+
+.l-main_contents {
+    width: 100%;
+
+    @include base.breakpointPc {
+        width: 80vw;
+    }
+}

@@ -3,6 +3,7 @@
 .p-menu {
     display: flex;
     justify-content: flex-end;
+    z-index: 1;
 
     &__btn {
         width: 51px;
@@ -28,6 +29,10 @@
         }
     }
 
+    li {
+        list-style-type: none;
+    }
+    
     @include base.breakpointPc {
         display: none;
     }

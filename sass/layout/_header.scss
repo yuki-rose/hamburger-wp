@@ -9,10 +9,6 @@
     height: 217px;
     }
 
-    @include base.breakpointPc {
-        width: 80%;
-    }
-
     &__ttl {
         height: 47px;
         color: base.$color--gray;

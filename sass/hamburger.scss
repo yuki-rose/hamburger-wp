@@ -12,10 +12,6 @@
 @use "./object/component/pagenation";
 @use "./object/utility/visual";
 @use "./object/component/single";
-@use "./object/component/blockquote";
 @use "./object/component/single_visual";
-@use "./object/component/single_caption";
-@use "./object/component/single_wrappergrid";
-@use "./object/component/single_libox";
-@use "./object/component/code";
-@use "./object/component/table";
+@use "./layout/contents_wrapper";
+@use "./layout/main";
