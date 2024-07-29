@@ -3,17 +3,26 @@
 <?php get_sidebar(); //siderbar.phpを読み込み ?>
 
 <main class="l-main">
-<?php 
-    $args = [ 'src' => 'images/page-title_arcive@2x.jpg', 'alt' => 'ハンバーガーの写真', 'figcap' => 'Menu:' ]; //変数の設定
-    get_template_part( 'parts/mainvisual', 'top', $args ); //mainvisual-top.phpを上記の配列で読み込み 
-?>
+    <figure class="c-mainvisual__archive">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/page-title_arcive@2x.jpg" alt="ハンバーガーの写真">
+        <div class="c-main__archive-ttlset">
+            <figcaption class="c-main__archivettl">Menu:</figcaption>
+            <h3 class="c-main__archivettl-sub">チーズバーガー</h3>
+        </div>
+    </figure>
 
 <div class="c-archive">
-            <h2 class="c-archive__ttl">小見出しが入ります</h2>
-            <article class="c-archive__txt">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</article>
-        </div>
+    <h2 class="c-archive__ttl">小見出しが入ります</h2>
+    <article class="c-archive__txt">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</article>
+ </div>
 
-        <div class="c-archive__wrapperGrid">
+<ul class="c-archive__wrapperGrid">
+    <?php if(have_post()): ?>
+        <?php while(have_post()): the_post();
+                get_template_part('parts', 'archive_grid');
+            endwhile; ?>
+    <?php else: ?>
+    <?php endif; ?>    
             <a href="./single.html">
             <div class="c-archive__wrapperGrid-item">
                 <img class="c-archive__wrapperGrid-img" src="<?php echo get_stylesheet_directory_uri(); ?>/images/humburger_by_the_window.png" alt="ハンバーガーの写真">
@@ -44,7 +53,7 @@
                     <button class="c-detail__btn">詳しく見る</button>
                 </article>
             </div></a>
-        </div>
+</ul>
 
         <div class="c-pagenation">
             <div class="c-pagenation__pageno">page 1/10</div>

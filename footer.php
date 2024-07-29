@@ -1,11 +1,16 @@
 <footer class="l-footer">
-        <nav class="l-footer__menu">ショップ情報 | ヒストリー</nav>
-        <small class="l-footer__copyright">Copyright: RaiseTech</small>
-    </footer>
+    <nav class="l-footer__menu">
+        <a href="<?php echo esc_url(home_url('/')); ?>shop/">    
+            ショップ情報
+        </a> | 
+        <a href="<?php echo esc_url(home_url('/')); ?>history/">
+            ヒストリー
+        </a>
+    </nav>
+    <small class="l-footer__copyright">Copyright: RaiseTech</small>
+</footer>
     
-    <!--<script src="./js/jquery-3.7.1.min.js"></script>
-    <script  src="./js/main.js"></script>-->
-</div>
+</div><!--body-wrapper-->
 </body>
 
 </html>

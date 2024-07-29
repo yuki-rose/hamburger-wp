@@ -14,7 +14,7 @@
                 <header class="l-header">
                     <div class="p-menu">
                         <button class="p-menu__btn js-menu__btn">
-                            <?php wp_nav_menu( array( 'theme_location' => 'topnav' )); //管理画面の外観 ＞ メニュー を表示 ?>
+                            Menu
                         </button>
                     </div>
                     <h1 class="l-header__ttl"><?php bloginfo( 'name' ); //管理画面の設定 ＞ 一般 にある「サイトのタイトル」を取得して表示 ?></h1>

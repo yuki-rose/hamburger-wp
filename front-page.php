@@ -1,7 +1,5 @@
 <?php get_header(); //header.phpを読み込み ?> 
 
-<?php get_sidebar(); //siderbar.phpを読み込み ?>
-
 <main class="l-main">
     <figure class="c-mainvisual">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/mainvisual-pc@2x.jpg" alt="ハンバーガーの写真">
@@ -11,7 +9,7 @@
 
         <div class="p-main__wrapperGrid">
             <div class="p-main__wrapperGrid-item takeout-bg">
-                <a href="<?php echo esc_url(home_url('/')); ?>page/">
+                <a href="<?php echo esc_url(home_url('/')); ?>takeout/">
                 <h2 class="p-main__wrapperGrid-ttl">Take Out</h2>
                 <div class="p-main__wrapperGrid-txtboxset">
                     <article class="p-main__wrapperGrid-txtbox">
@@ -41,7 +39,7 @@
                 </div></a>
             </div>
             <div class="p-main__wrapperGrid-item eatin-bg">
-                <a href="<?php echo esc_url(home_url('/')); ?>single/">
+                <a href="<?php echo esc_url(home_url('/')); ?>eatin/">
                 <h2 class="p-main__wrapperGrid-ttl">Eat In</h2>
                 <div class="p-main__wrapperGrid-txtboxset">
                     <article class="p-main__wrapperGrid-txtbox">
@@ -84,6 +82,10 @@
                 <p class="p-map-txt">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入りま</p>
             </div>
         </div>
+
+        </div><!--l-main_contents-->
     </main>
+
+    <?php get_sidebar(); //siderbar.phpを読み込み ?>
 
     <?php get_footer(); //footer.phpを読み込むテンプレートタグ ?>
