@@ -6,7 +6,7 @@
     padding-right: 5.3vw;
     padding-bottom: 8.5vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     @include base.breakpointTablet {
         padding-top: 0;
@@ -16,11 +16,8 @@
     }
 
     @include base.breakpointPc {
-        width: 80%;
-        padding-top: 2.6vw;
-        padding-bottom: 3.3vw;
-        padding-left: 24.8vw;
-        padding-right: 24.8vw;
+        width: 100%;
+        padding-top: 2.6vw 15vw 3.3vw;
     }
 
     &__btn {
@@ -55,39 +52,118 @@
         }
     }
 
-    &__pagelist {
+    .page-numbers {
         display: flex;
         justify-content: space-between;
-    }
 
-    &__page {
-        display: none;
-
-        @include base.breakpointTablet {
-            display: unset;
-            color: base.$color--gray;
-            font-size: 1.6rem;
-            font-weight: 700;
-            width: 35px;
-            height: 35px;
-            border: 1px solid base.$color--gray;
-            margin-right: 1.7vw;
-            text-align: center;
-            line-height: 35px;
-
-            @include base.breakpointPc {
-                margin-right: 0.8vw;
-                margin-left: 0;
+        li {
+            display: none;
+    
+            @include base.breakpointTablet {
+                display: unset;
+                color: base.$color--gray;
+                font-size: 1.6rem;
+                font-weight: 700;
+                width: 35px;
+                height: 35px;
+                border: 1px solid base.$color--gray;
+                margin-right: 1.7vw;
+                text-align: center;
+                line-height: 35px;
+    
+                @include base.breakpointPc {
+                    margin-right: 0.8vw;
+                    margin-left: 0;
+                }
+                
+                &:first-child {
+                    color: white;
+                }
+    
+                &:last-child {
+                    margin-right: 0;
+                }
             }
-            
-            &:first-child {
-                color: white;
+
+            a {
+                display: block;
+            }
+
+            span {
+                display: block;
                 background-color: base.$color--darkbrown;
+                color: base.$color--white;
             }
 
-            &:last-child {
-                margin-right: 0;
+            .prev {
+                color: base.$color--gray;
+                width: 12px;
+                height: 12px;
+                border-top: 1px solid base.$color--gray;
+                border-left: 1px solid base.$color--gray;
+                display: inline-block;
+                transform: rotate(-45deg); 
+                position: relative;
+                margin-right: 2.5vw;
+    
+                @include base.breakpointTablet {
+                    margin-left: 2.0vw;
+                }
+    
+                @include base.breakpointPc {
+                    margin-left:  -1vw;                    
+                }
+    
+                &::before {
+                    content: "";
+                    color: base.$color--gray;
+                    width: 12px;
+                    height: 12px;
+                    border-top: 1px solid base.$color--gray;
+                    border-left: 1px solid base.$color--gray;
+                    display: inline-block;
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+                }
             }
+    
+            .next {
+                color: base.$color--gray;
+                width: 12px;
+                height: 12px;
+                border-top: 1px solid base.$color--gray;
+                border-left: 1px solid base.$color--gray;
+                display: inline-block;
+                transform: rotate(135deg); 
+                position: relative;
+                margin-left: 2.5vw;
+    
+                @include base.breakpointTablet {
+                    margin-left: 2.0vw;
+                }
+    
+                &::before {
+                    content: "";
+                    color: base.$color--gray;
+                    width: 12px;
+                    height: 12px;
+                    border-top: 1px solid base.$color--gray;
+                    border-left: 1px solid base.$color--gray;
+                    display: inline-block;
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+                }
+            }
+        }
+
+        li:has(.next) {
+            border: none;
+        }
+
+        li:has(.prev) {
+            border: none;
         }
     }
 }

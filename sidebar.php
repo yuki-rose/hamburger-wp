@@ -21,7 +21,7 @@
             <?php
                 $my_query = new WP_Query(array('cat' => $ham_category->term_id)); //サブループ
                 if ($my_query->have_posts()): ?>
-                <ul class="sideMemu">
+                <ul class="sideMenu">
                     <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
 	                    <li class="menuItem"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
                     <?php endwhile; ?>

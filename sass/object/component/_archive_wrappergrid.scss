@@ -5,6 +5,10 @@
     gap: 5vw;
     grid-template-columns: 1fr;
     margin: 5vw;
+
+    li {
+        list-style: none;
+    }
     
     @include base.breakpointTablet {
         margin-right: 2.4vw;
@@ -59,14 +63,10 @@
 
         @include base.breakpointTablet {
             margin: 0;
-            position: absolute;
-            top: 31px;
         }
 
         @include base.breakpointPc {
             font-size: 3.6rem;
-            position: absolute;
-            top: 56px;
         }
     }
 
@@ -76,12 +76,17 @@
         color: #ffffff;
         text-align: left;
         padding: 4.2vw;
+        position: relative;
+        height: 90vw;
+        min-height: 350px;
 
         @include base.breakpointTablet {
             padding-left: 4.1vw;
             width: 45vw;
             position: relative;
             flex-direction: row;
+            height: auto;
+            min-height: 400px;
         }
 
         @include base.breakpointPc {
@@ -91,21 +96,24 @@
             padding-right: 5.4vw;
             padding-top: 6.0vw;
         }
+
+        p {
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 400;
+
+            @include base.breakpointTablet {
+                line-height: 23.76px;
+            }
+
+            @include base.breakpointPc {
+                font-size: 1.6rem;
+            }
+        }
     }
 
     &-txt {
-        color: #ffffff;
-        font-size: 1.6rem;
-        font-weight: 400;
-
-        @include base.breakpointTablet {
-            line-height: 23.76px;
-        }
-
-        @include base.breakpointPc {
-            font-size: 1.6rem;
-        }
-
+ 
         &__ttl {
             color: #ffffff;
             font-size: 1.6rem;
@@ -140,12 +148,20 @@
     margin-right: auto;
     margin-top: 10.6vw;
     margin-bottom: 11.6vw;
+    line-height: 11.6vw;
+    position: absolute;
+    right: 23vw;
+    bottom: 0;
 
     @include base.breakpointTablet {
         width: 19.5vw;
-        height: 5vw;
+        height: 5.0vw;
         margin-top: 5.3vw;
         margin-bottom: 0.5vw;
+        line-height: 5.0vw;
+        position: absolute;
+        bottom: 8vw;
+        right: 12.5vw;
     }
 
     @include base.breakpointPc {
@@ -154,5 +170,8 @@
         width: 15.2vw;
         height: 3.9vw;
         margin-bottom: 0;
+        line-height: 3.9vw;
+        right: 10vw;
+        bottom: 4vw;
     }
 }

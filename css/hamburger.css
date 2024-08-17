@@ -770,6 +770,9 @@ a {
   grid-template-columns: 1fr;
   margin: 5vw;
 }
+.c-archive__wrapperGrid li {
+  list-style: none;
+}
 @media (min-width: 590px) {
   .c-archive__wrapperGrid {
     margin-right: 2.4vw;
@@ -830,15 +833,11 @@ a {
 @media (min-width: 590px) {
   .c-archive__wrapperGrid-ttl {
     margin: 0;
-    position: absolute;
-    top: 31px;
   }
 }
 @media (min-width: 960px) {
   .c-archive__wrapperGrid-ttl {
     font-size: 3.6rem;
-    position: absolute;
-    top: 56px;
   }
 }
 .c-archive__wrapperGrid-txtbox {
@@ -847,6 +846,9 @@ a {
   color: #ffffff;
   text-align: left;
   padding: 4.2vw;
+  position: relative;
+  height: 90vw;
+  min-height: 350px;
 }
 @media (min-width: 590px) {
   .c-archive__wrapperGrid-txtbox {
@@ -854,6 +856,8 @@ a {
     width: 45vw;
     position: relative;
     flex-direction: row;
+    height: auto;
+    min-height: 400px;
   }
 }
 @media (min-width: 960px) {
@@ -865,18 +869,18 @@ a {
     padding-top: 6vw;
   }
 }
-.c-archive__wrapperGrid-txt {
+.c-archive__wrapperGrid-txtbox p {
   color: #ffffff;
   font-size: 1.6rem;
   font-weight: 400;
 }
 @media (min-width: 590px) {
-  .c-archive__wrapperGrid-txt {
+  .c-archive__wrapperGrid-txtbox p {
     line-height: 23.76px;
   }
 }
 @media (min-width: 960px) {
-  .c-archive__wrapperGrid-txt {
+  .c-archive__wrapperGrid-txtbox p {
     font-size: 1.6rem;
   }
 }
@@ -914,6 +918,10 @@ a {
   margin-right: auto;
   margin-top: 10.6vw;
   margin-bottom: 11.6vw;
+  line-height: 11.6vw;
+  position: absolute;
+  right: 23vw;
+  bottom: 0;
 }
 @media (min-width: 590px) {
   .c-detail__btn {
@@ -921,6 +929,10 @@ a {
     height: 5vw;
     margin-top: 5.3vw;
     margin-bottom: 0.5vw;
+    line-height: 5vw;
+    position: absolute;
+    bottom: 8vw;
+    right: 12.5vw;
   }
 }
 @media (min-width: 960px) {
@@ -930,6 +942,9 @@ a {
     width: 15.2vw;
     height: 3.9vw;
     margin-bottom: 0;
+    line-height: 3.9vw;
+    right: 10vw;
+    bottom: 4vw;
   }
 }
 
@@ -939,7 +954,7 @@ a {
   padding-right: 5.3vw;
   padding-bottom: 8.5vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 @media (min-width: 590px) {
   .c-pagenation {
@@ -951,11 +966,8 @@ a {
 }
 @media (min-width: 960px) {
   .c-pagenation {
-    width: 80%;
-    padding-top: 2.6vw;
-    padding-bottom: 3.3vw;
-    padding-left: 24.8vw;
-    padding-right: 24.8vw;
+    width: 100%;
+    padding-top: 2.6vw 15vw 3.3vw;
   }
 }
 .c-pagenation__btn {
@@ -991,15 +1003,15 @@ a {
     margin-right: 2vw;
   }
 }
-.c-pagenation__pagelist {
+.c-pagenation .page-numbers {
   display: flex;
   justify-content: space-between;
 }
-.c-pagenation__page {
+.c-pagenation .page-numbers li {
   display: none;
 }
 @media (min-width: 590px) {
-  .c-pagenation__page {
+  .c-pagenation .page-numbers li {
     display: unset;
     color: #707070;
     font-size: 1.6rem;
@@ -1013,21 +1025,95 @@ a {
   }
 }
 @media (min-width: 590px) and (min-width: 960px) {
-  .c-pagenation__page {
+  .c-pagenation .page-numbers li {
     margin-right: 0.8vw;
     margin-left: 0;
   }
 }
 @media (min-width: 590px) {
-  .c-pagenation__page:first-child {
+  .c-pagenation .page-numbers li:first-child {
     color: white;
-    background-color: #3c2a1c;
   }
 }
 @media (min-width: 590px) {
-  .c-pagenation__page:last-child {
+  .c-pagenation .page-numbers li:last-child {
     margin-right: 0;
   }
+}
+.c-pagenation .page-numbers li a {
+  display: block;
+}
+.c-pagenation .page-numbers li span {
+  display: block;
+  background-color: #3c2a1c;
+  color: #ffffff;
+}
+.c-pagenation .page-numbers li .prev {
+  color: #707070;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #707070;
+  border-left: 1px solid #707070;
+  display: inline-block;
+  transform: rotate(-45deg);
+  position: relative;
+  margin-right: 2.5vw;
+}
+@media (min-width: 590px) {
+  .c-pagenation .page-numbers li .prev {
+    margin-left: 2vw;
+  }
+}
+@media (min-width: 960px) {
+  .c-pagenation .page-numbers li .prev {
+    margin-left: -1vw;
+  }
+}
+.c-pagenation .page-numbers li .prev::before {
+  content: "";
+  color: #707070;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #707070;
+  border-left: 1px solid #707070;
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.c-pagenation .page-numbers li .next {
+  color: #707070;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #707070;
+  border-left: 1px solid #707070;
+  display: inline-block;
+  transform: rotate(135deg);
+  position: relative;
+  margin-left: 2.5vw;
+}
+@media (min-width: 590px) {
+  .c-pagenation .page-numbers li .next {
+    margin-left: 2vw;
+  }
+}
+.c-pagenation .page-numbers li .next::before {
+  content: "";
+  color: #707070;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #707070;
+  border-left: 1px solid #707070;
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.c-pagenation .page-numbers li:has(.next) {
+  border: none;
+}
+.c-pagenation .page-numbers li:has(.prev) {
+  border: none;
 }
 
 .prev-mark {
@@ -1182,7 +1268,6 @@ a {
 @media (min-width: 960px) {
   .c-mainvisual__archive {
     height: 239px;
-    width: 80%;
   }
 }
 .c-mainvisual__archive img {
@@ -1194,11 +1279,26 @@ a {
   -o-object-position: left;
      object-position: left;
 }
+@media (min-width: 590px) {
+  .c-mainvisual__archive img {
+    -o-object-position: 40% 0%;
+       object-position: 40% 0%;
+  }
+}
 @media (min-width: 960px) {
   .c-mainvisual__archive img {
     height: 239px;
-    content: url("/images/three-burgers-on-brown-wooden-tray-between-white-ceramic-1841108.png");
+    -o-object-position: left;
+       object-position: left;
   }
+}
+.c-mainvisual__archive img picture {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 100;
+  -o-object-position: 50%;
+     object-position: 50%;
 }
 
 .c-main__singlettl {
@@ -1743,6 +1843,7 @@ a {
 @media (min-width: 960px) {
   .l-main_contents {
     width: 80vw;
+    min-height: 1450px;
   }
 }
 /*# sourceMappingURL=hamburger.css.map */

@@ -77,7 +77,6 @@
 
     @include base.breakpointPc {
         height: 239px;
-        width: 80%;
     }
 
     img {
@@ -87,11 +86,21 @@
         opacity: 100;
         object-position: left;
 
-        @include base.breakpointPc {
-            height: 239px;
-            content: url("/images/three-burgers-on-brown-wooden-tray-between-white-ceramic-1841108.png");
+        @include base.breakpointTablet {
+            object-position: 40% 0%;
         }
 
+        @include base.breakpointPc {
+            height: 239px;
+            object-position: left;
+        }
+
+    picture {
+        display: block;
+        object-fit: cover;
+        opacity: 100;
+        object-position: 50%;
+    }
     }
 }
 

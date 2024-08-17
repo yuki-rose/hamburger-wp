@@ -9,8 +9,9 @@
 
         <div class="p-main__wrapperGrid">
             <div class="p-main__wrapperGrid-item takeout-bg">
-                <a href="<?php echo esc_url(home_url('/')); ?>takeout/">
-                <h2 class="p-main__wrapperGrid-ttl">Take Out</h2>
+                <?php $cat_takeout = get_category_by_slug('takeout');?>
+                <a href="<?php echo esc_url(get_category_link($cat_takeout->term_id));?>">
+                <h2 class="p-main__wrapperGrid-ttl"><?php echo $cat_takeout->name; ?></h2>
                 <div class="p-main__wrapperGrid-txtboxset">
                     <article class="p-main__wrapperGrid-txtbox">
                         <section class="p-main__wrapperGrid-txt__ttl">Take OUT</section>
@@ -39,8 +40,9 @@
                 </div></a>
             </div>
             <div class="p-main__wrapperGrid-item eatin-bg">
-                <a href="<?php echo esc_url(home_url('/')); ?>eatin/">
-                <h2 class="p-main__wrapperGrid-ttl">Eat In</h2>
+            <?php $cat_eatin = get_category_by_slug('eatin');?>
+                <a href="<?php echo esc_url(get_category_link($cat_eatin->term_id));?>">
+                <h2 class="p-main__wrapperGrid-ttl"><?php echo $cat_eatin->name; ?></h2>
                 <div class="p-main__wrapperGrid-txtboxset">
                     <article class="p-main__wrapperGrid-txtbox">
                         <section class="p-main__wrapperGrid-txt__ttl">Eat In</section>

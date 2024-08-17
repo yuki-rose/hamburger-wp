@@ -1,7 +1,5 @@
 <?php get_header(); //header.phpを読み込み ?> 
 
-<?php get_sidebar(); //siderbar.phpを読み込み ?>
-
 <main class="l-main">
     <figure class="c-mainvisual__single">
         <?php //メインビジュアル//
@@ -20,5 +18,8 @@
     ?>
     </div>
 </main>
+</div><!--l-main_contents-->
+
+<?php get_sidebar(); //siderbar.phpを読み込み ?>
 
 <?php get_footer(); //footer.phpを読み込むテンプレートタグ ?>

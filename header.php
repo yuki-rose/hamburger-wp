@@ -17,6 +17,8 @@
                             Menu
                         </button>
                     </div>
-                    <h1 class="l-header__ttl"><?php bloginfo( 'name' ); //管理画面の設定 ＞ 一般 にある「サイトのタイトル」を取得して表示 ?></h1>
+                    <a href="<?php echo esc_url(home_url('/')); ?>">
+                        <h1 class="l-header__ttl"><?php bloginfo( 'name' ); //管理画面の設定 ＞ 一般 にある「サイトのタイトル」を取得して表示 ?></h1>
+                    </a>
                     <?php get_template_part( 'parts/searchform' ); //検索フォームを読み込む ?>
                 </header>
