@@ -1,6 +1,5 @@
 html {
   font-size: 62.5%;
-  height: 100vw;
   width: 100%;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -634,6 +633,7 @@ a {
   line-height: 29.7px;
   margin-left: 5vw;
   margin-bottom: 20px;
+  list-style: none;
 }
 @media (min-width: 590px) {
   .menuItem {
@@ -1843,7 +1843,6 @@ a {
 @media (min-width: 960px) {
   .l-main_contents {
     width: 80vw;
-    min-height: 1450px;
   }
 }
 /*# sourceMappingURL=hamburger.css.map */
