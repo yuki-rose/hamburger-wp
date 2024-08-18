@@ -19,7 +19,7 @@
         <article class="c-archive__txt notfound">お探しのページは、削除されたか、名前が変更された可能性があります。<br>
             直接アドレスを入力された場合は、アドレスが正しく入力されているかもう一度ご確認下さい。<br>
             ブラウザの再読み込みを行ってもこのページが表示される場合は、
-            <a href="<?php echo esc_url(home_url('/')); ?>">トップページ</a>から目的のページをお探しください。
+            <a class="toplink" href="<?php echo esc_url(home_url('/')); ?>">トップページ</a>から目的のページをお探しください。
         </article>
     </div>
 

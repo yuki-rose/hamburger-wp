@@ -1845,4 +1845,8 @@ a {
 .notfound {
   margin-bottom: 5vw;
 }
+
+.toplink {
+  text-decoration: underline;
+}
 /*# sourceMappingURL=hamburger.css.map */
