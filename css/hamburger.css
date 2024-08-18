@@ -22,10 +22,6 @@ body.is-open {
   position: fixed;
 }
 
-.body-wrapper {
-  overflow-x: hidden;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -1844,5 +1840,9 @@ a {
   .l-main_contents {
     width: 80vw;
   }
+}
+
+.notfound {
+  margin-bottom: 5vw;
 }
 /*# sourceMappingURL=hamburger.css.map */
