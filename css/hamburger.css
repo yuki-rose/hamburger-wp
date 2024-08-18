@@ -421,7 +421,6 @@ a {
 @media (min-width: 960px) {
   .l-side {
     width: 20%;
-    background-color: aqua;
     position: relative;
   }
 }
