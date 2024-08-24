@@ -31,17 +31,9 @@
         wp_enqueue_style( 'resscss', get_theme_file_uri( '/css/ress.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
         wp_enqueue_style( 'style', get_theme_file_uri('/style.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
         wp_enqueue_style( 'hamburger', get_theme_file_uri('/css/hamburger.css' ), array(), '1.0.0' ); //スタイルシートの読み込み
+        wp_enqueue_style( 'fontawesome', get_theme_file_uri('/css/all.min.css' ), array(), '6.6.0' ); //スタイルシートの読み込み
         wp_enqueue_script( 'jquery', get_theme_file_uri('/js/jquery-3.7.1.min.js' ), array(), true ); //jQuery本体読み込み
         wp_enqueue_script( 'mainjs', get_theme_file_uri( '/js/main.js' ), array( 'jquery' ), true ); //JavaScript読み込み
-        wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/811b940674.js', array()); //Fontawesomeの読み込み
-        //Fontawesomeのタグを書き換え
-        function custom_script_loader_tag($tag, $handle) {
-            if ($handle !== 'fontawesome') { //ハンドル名がfontawesomeなら
-                return $tag;
-            }
-            return str_replace('></script>', 'crossorigin="anonymous"></script>', $tag); //文字列を置き換える
-        }
-        add_filter('script_loader_tag', 'custom_script_loader_tag', 10, 2); //script_loader_tagは<script>タグの変更ができるフィルターフック
     }
     add_action( 'wp_enqueue_scripts', 'hamburger_script' ); //wp_enqueue_scriptsはアクションフック
 

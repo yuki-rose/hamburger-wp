@@ -9,6 +9,13 @@
     height: 217px;
     }
 
+    &_link {
+        display: block;
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
     &__ttl {
         height: 47px;
         color: base.$color--gray;

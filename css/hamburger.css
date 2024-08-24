@@ -55,6 +55,14 @@ q {
     height: 217px;
   }
 }
+.l-header_link {
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
 .l-header__ttl {
   height: 47px;
   color: #707070;
@@ -1443,6 +1451,9 @@ a {
   font-size: 1.6rem;
   font-weight: 400;
   margin-bottom: 9.6vw;
+}
+.c-single_main_contents ul li {
+  list-style: none;
 }
 .c-single_main_contents ul, .c-single_main_contents ol {
   list-style-position: inside;

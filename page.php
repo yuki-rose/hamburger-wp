@@ -7,7 +7,7 @@
             <?php the_post_thumbnail( 'full' ); //サムネイルを表示 ?>
             <figcaption class="c-main__singlettl"><?php the_title(); ?></figcaption>
         <?php else://なければ指定画像を表示 ?>
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ham-burger-with-vegetables-pc1639557.jpg" alt="ハンバーガーの写真">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/black-steel-lamp-post-1070945.jpg" alt="ハンバーガーの写真">
             <figcaption class="c-main__singlettl"><?php the_title(); ?></figcaption>
         <?php endif; ?>
     </figure>
