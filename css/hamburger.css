@@ -1010,12 +1010,9 @@ a {
   display: flex;
   justify-content: space-between;
 }
-.c-pagenation .page-numbers li {
-  display: none;
-}
 @media (min-width: 590px) {
   .c-pagenation .page-numbers li {
-    display: unset;
+    display: block;
     color: #707070;
     font-size: 1.6rem;
     font-weight: 700;
@@ -1112,11 +1109,26 @@ a {
   left: 5px;
   top: 5px;
 }
+.c-pagenation .page-numbers li:not(:has(.next)) {
+  display: none;
+}
+@media (min-width: 590px) {
+  .c-pagenation .page-numbers li:not(:has(.next)) {
+    display: initial;
+  }
+}
 .c-pagenation .page-numbers li:has(.next) {
+  list-style: none;
   border: none;
 }
 .c-pagenation .page-numbers li:has(.prev) {
+  display: initial;
+  list-style: none;
   border: none;
+}
+.c-pagenation .navigation {
+  width: 100%;
+  margin-left: 5vw;
 }
 
 .prev-mark {
@@ -1187,6 +1199,51 @@ a {
   position: absolute;
   left: 5px;
   top: 5px;
+}
+
+.c-single_pagination {
+  padding-top: 16.5vw;
+  padding-left: 5.3vw;
+  padding-right: 5.3vw;
+  padding-bottom: 8.5vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (min-width: 590px) {
+  .c-single_pagination {
+    padding-top: 0;
+    padding-bottom: 3.8vw;
+    padding-left: 14.6vw;
+    padding-right: 14vw;
+  }
+}
+@media (min-width: 960px) {
+  .c-single_pagination {
+    width: 100%;
+    padding-top: 2.6vw 15vw 3.3vw;
+  }
+}
+.c-single_pagination .c-page_number {
+  display: block;
+  color: #707070;
+  font-size: 1.6rem;
+  font-weight: 700;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #707070;
+  margin-right: 1.7vw;
+  text-align: center;
+  line-height: 35px;
+}
+@media (min-width: 960px) {
+  .c-single_pagination .c-page_number {
+    margin-right: 0.8vw;
+    margin-left: 0;
+  }
+}
+.c-single_pagination .current .c-page_number {
+  background-color: #3c2a1c;
+  color: #ffffff;
 }
 
 .c-main__archive-ttlset {
@@ -1420,6 +1477,10 @@ a {
     height: 500px;
     content: url("/images/black-steel-lamp-post-pc1070945.jpg");
   }
+}
+
+.blue-button .wp-block-button__link {
+  background: linear-gradient(131deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
 }
 
 .c-single_main_contents {

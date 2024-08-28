@@ -3,7 +3,7 @@
 <main class="l-main">
     <?php if( have_posts() ): //メインループの記述
         while( have_posts() ): the_post(); ?>
-
+        <div <?php post_class(); //自動で投稿情報のクラスを付ける?>>
             <figure class="c-mainvisual__single">
             <?php //メインビジュアル//
                 if ( has_post_thumbnail()): //サムネイル画像があったら ?>
@@ -20,7 +20,13 @@
                 the_content();
             ?>
             </div>
-        
+            <?php $args = array(
+                    'before' => '<div class="c-single_pagination">',
+                    'after' => '</div>',
+                    'pagelink' => '<span class="c-page_number">%</span>',
+                );
+                wp_link_pages($args); //記事分割の場合のページネーション?>
+        </div>
         <?php endwhile;
             else :?>
             <p>表示する記事がありません</p>

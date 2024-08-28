@@ -8,6 +8,9 @@
 </head>
 
 <body <?php body_class(); //ページごとに自動的にタグが追加される,WordPressがクラス名を付けてくれる?>>
+<?php if ( function_exists( 'wp_body_open' ) ) {
+		    wp_body_open();
+	    } //bodyが開いた後に実行する関数があれば実行する?>
     <div class="body-wrapper">
         <div class="l-contens_wrapper">
             <div class="l-main_contents">

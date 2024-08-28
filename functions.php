@@ -17,8 +17,56 @@
         ));
         add_theme_support( 'title-tag' ); //管理画面からタイトルタグの登録可能に
         add_theme_support( 'post-thumbnails' ); //アイキャッチ画像の有効化
+        add_theme_support( 'automatic-feed-links' ); //投稿とコメントのRSSフィードを有効にする
+        add_theme_support( 'wp-block-styles' ); //エディターのスタイルをフロントに反映する
+        add_theme_support( 'editor-styles' ); //エディタースタイル(編集画面にスタイルをあてる)を有効にする
+        add_theme_support( 'core-block-patter' );
     }
     add_action( 'after_setup_theme', 'custom_theme_support' );
+
+    //ブロックスタイルの追加
+    function custom_block_style() {
+        register_block_style(
+            'core/image', // スタイルを追加するコアブロックを指定
+            array( //スタイルを指定する
+                'name' => 'shadow', // スタイルのクラス名
+                'label' => '影付き', //エディターに表示されるラベル名
+                'inline_style' => '.is-style-shadow {
+                                    box-shadow: 10px 5px 5px black;
+                                    }', //CSS
+            )
+        );
+    }
+    add_action( 'init', 'custom_block_style');
+
+    //ブロックパターン、カテゴリーの追加
+    function custom_block_pattern() {
+        register_block_pattern(
+            'original-block/blue-button', //namespace/title
+            array(
+                'title' => 'blue-button', //表示されるタイトル
+                'category' => 'original', //ブロックパターン用のカテゴリー、別途登録
+                'description' => "ブルーボタン", //検索支援に使用
+                'content' => '<!-- wp:buttons {"metadata":{"patternName":"original-block/blue-button","name":"blue-button"}} -->
+                                <div class="wp-block-buttons">
+                                    <!-- wp:button {"className":"blue-button"} -->
+                                    <div class="wp-block-button blue-button">
+                                        <a class="wp-block-button__link wp-element-button">
+                                        ボタン
+                                        </a>
+                                    </div>
+                                    <!-- /wp:button -->
+                                </div>
+                                <!-- /wp:buttons -->', //HTML
+            )
+        );
+
+        register_block_pattern_category(
+            'original', // カテゴリーのスラッグ
+            array( 'label' => 'オリジナル' ) // 表示名
+        );
+    }
+    add_action( 'init', 'custom_block_pattern');
 
     //スタイルシート,JavaScript読み込み
     function hamburger_script() {

@@ -56,11 +56,9 @@
         display: flex;
         justify-content: space-between;
 
-        li {
-            display: none;
-    
+        li {    
             @include base.breakpointTablet {
-                display: unset;
+                display: block;
                 color: base.$color--gray;
                 font-size: 1.6rem;
                 font-weight: 700;
@@ -158,13 +156,30 @@
             }
         }
 
+        li:not(:has(.next)) {
+            display: none;
+
+            @include base.breakpointTablet {
+                display: initial;
+            }
+        }
+
         li:has(.next) {
+            list-style: none;
             border: none;
+
         }
 
         li:has(.prev) {
+            display: initial;
+            list-style: none;
             border: none;
         }
+    }
+
+    .navigation {
+        width: 100%;
+        margin-left: 5vw;
     }
 }
 
@@ -233,5 +248,49 @@
         position: absolute;
         left: 5px;
         top: 5px;
+    }
+}
+
+.c-single_pagination {
+    padding-top: 16.5vw;
+    padding-left: 5.3vw;
+    padding-right: 5.3vw;
+    padding-bottom: 8.5vw;
+    display: flex;
+    justify-content: space-evenly;
+
+    @include base.breakpointTablet {
+        padding-top: 0;
+        padding-bottom: 3.8vw;
+        padding-left: 14.6vw;
+        padding-right: 14.0vw;
+    }
+
+    @include base.breakpointPc {
+        width: 100%;
+        padding-top: 2.6vw 15vw 3.3vw;
+    }
+
+    .c-page_number {
+        display: block;
+        color: base.$color--gray;
+        font-size: 1.6rem;
+        font-weight: 700;
+        width: 35px;
+        height: 35px;
+        border: 1px solid base.$color--gray;
+        margin-right: 1.7vw;
+        text-align: center;
+        line-height: 35px;
+
+        @include base.breakpointPc {
+            margin-right: 0.8vw;
+            margin-left: 0;
+        }
+    }
+
+    .current .c-page_number {
+        background-color: base.$color--darkbrown;
+        color: base.$color--white;
     }
 }
