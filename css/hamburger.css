@@ -1483,6 +1483,28 @@ a {
   background: linear-gradient(131deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
 }
 
+.wp-caption, .wp-caption-text, .gallery-caption,
+.bypostauthor {
+  display: none;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.alignright {
+  text-align: right;
+}
+
+.alignleft {
+  text-align: left;
+}
+
+.aligncenter {
+  text-align: center;
+}
+
 .c-single_main_contents {
   padding: 9vw 5.3vw;
   color: #3c2a10;

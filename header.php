@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="<?php bloginfo( 'description' ); //管理画面の設定 ＞ 一般 にある「キャッチフレーズ」を取得して表示 ?>">
+    <?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); //各コメントの「返信」をクリックでコメントフォームが直下まで移動するWordPressのJSを読込?> 
     <?php wp_head(); //WordPressのテーマに含める関数,</head>の前に必ず入れる ?>
 </head>
 

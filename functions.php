@@ -20,7 +20,12 @@
         add_theme_support( 'automatic-feed-links' ); //投稿とコメントのRSSフィードを有効にする
         add_theme_support( 'wp-block-styles' ); //エディターのスタイルをフロントに反映する
         add_theme_support( 'editor-styles' ); //エディタースタイル(編集画面にスタイルをあてる)を有効にする
-        add_theme_support( 'core-block-patter' );
+        add_theme_support( "responsive-embeds" ); //埋め込みコンテンツのレスポンシブ化
+        add_theme_support( "custom-logo"); //カスタムロゴ機能の有効化
+        add_theme_support( "custom-header"); //カスタムヘッダーの有効化(キーヴィジュアルの設定)
+        add_theme_support( "custom-background"); //カスタム背景の有効化
+        add_theme_support( "align-wide" ); //幅広、全幅の有効化
+        add_editor_style( array( 'css/hamburger.css', 'css/editor-style.css' ) ); //エディター用スタイルシート読み込み
     }
     add_action( 'after_setup_theme', 'custom_theme_support' );
 
@@ -45,7 +50,7 @@
             'original-block/blue-button', //namespace/title
             array(
                 'title' => 'blue-button', //表示されるタイトル
-                'category' => 'original', //ブロックパターン用のカテゴリー、別途登録
+                'categories' => ["original"], //ブロックパターン用のカテゴリー、別途登録
                 'description' => "ブルーボタン", //検索支援に使用
                 'content' => '<!-- wp:buttons {"metadata":{"patternName":"original-block/blue-button","name":"blue-button"}} -->
                                 <div class="wp-block-buttons">
@@ -61,7 +66,7 @@
             )
         );
 
-        register_block_pattern_category(
+        register_block_pattern_category( //ブロックパターンのカテゴリー登録
             'original', // カテゴリーのスラッグ
             array( 'label' => 'オリジナル' ) // 表示名
         );
@@ -97,6 +102,17 @@
     add_filter( 'pre_get_document_title', 'hamburger_title' ); 
         /*add_filterは既に定義された内容に変更を加えることができるWordPress関数
         pre_get_document_titleは""以外を返すとその文字列がタイトルとして返される*/
+
+    //アーカイブの表示件数を変更する
+    function change_posts_per_page($query) {
+        if ( is_admin() || ! $query->is_main_query() )
+            return;
+     
+        if ( $query->is_archive() ) {
+            $query->set( 'posts_per_page', 3 );
+        }
+    }
+    add_action( 'pre_get_posts', 'change_posts_per_page' );
 
     //記事からh2タグを抜き出す
     function get_h2() {
