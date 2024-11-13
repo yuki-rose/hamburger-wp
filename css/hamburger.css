@@ -69,6 +69,12 @@ q {
     align-items: center;
   }
 }
+@media (min-width: 960px) {
+  .l-header {
+    display: flex;
+    align-items: center;
+  }
+}
 .l-header_link {
   display: block;
   width: -webkit-fit-content;
@@ -2530,7 +2536,6 @@ a {
 @media (min-width: 960px) {
   .c-recommendMenus .c-recommend__wrapperGrid {
     grid-template-columns: repeat(3, 1fr);
-    width: 80vw;
     gap: 1.9vw;
   }
 }

@@ -21,13 +21,7 @@ jQuery( function($) {
     });
 });
 
-<<<<<<< HEAD
-
-
-  let wasBelow960 = window.innerWidth < 960; // 初期状態が960px未満かを確認
-=======
 let wasBelow960 = window.innerWidth < 960; // 初期状態が960px未満かを確認
->>>>>>> c1cbf68 (advanced)
 
 window.addEventListener('resize', function() {
   const isNowAbove960 = window.innerWidth >= 960;
