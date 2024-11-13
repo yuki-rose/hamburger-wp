@@ -11,13 +11,14 @@
     @include base.breakpointTablet {
         padding-top: 0;
         padding-bottom: 3.8vw;
-        padding-left: 14.6vw;
-        padding-right: 14.0vw;
+        padding-left: 35.0vw;
+        padding-right: 45.0vw;
     }
 
     @include base.breakpointPc {
         width: 100%;
-        padding-top: 2.6vw 15vw 3.3vw;
+        padding-left: 30.0vw;
+        padding-right: 30.0vw;
     }
 
     &__btn {

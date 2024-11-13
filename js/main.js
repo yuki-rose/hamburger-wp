@@ -20,3 +20,21 @@ jQuery( function($) {
         $(".l-side__bg").removeClass("is-open");
     });
 });
+
+
+
+  let wasBelow960 = window.innerWidth < 960; // 初期状態が960px未満かを確認
+
+window.addEventListener('resize', function() {
+  const isNowAbove960 = window.innerWidth >= 960;
+
+  if (isNowAbove960 && wasBelow960) {
+        document.querySelector(".l-side__base").classList.remove("is-open");
+        document.querySelector(".l-side__bg").classList.remove("is-open");
+        document.querySelector("body").classList.remove("is-open");
+        document.querySelector(".l-side__base").style.display = "block";
+    location.reload();
+  }
+
+  wasBelow960 = !isNowAbove960; // 現在の状態を更新
+});

@@ -6,7 +6,12 @@
     background-color: #fff7ef;
 
     @include base.breakpointTablet {
-    height: 217px;
+        height: 217px;
+    }
+
+    @include base.breakpointPc {
+        display: flex;
+        align-items: center;
     }
 
     &_link {
@@ -33,8 +38,8 @@
             height: 75px;
             font-size: 6.4rem;
             justify-content: space-between;
-            padding-top: 66px;
             margin-left: 65px;
+            display: block;
         }
     }
 }
