@@ -155,6 +155,220 @@
     }
 }
 
+.c-mainvisual__news {
+    height: 291px;
+    width: 100%;
+    position: relative;
+
+    @include base.breakpointTablet {
+        height: 505px;
+    }
+
+    img {
+        height: 291px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 1;
+
+        @include base.breakpointTablet {
+            height: 505px;
+        }
+
+        @include base.breakpointPc {
+            height: 500px;
+        }
+    }
+}
+
+.c-mainvisual__news:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 291px;
+    background-color: rgba(0, 0, 0, 0.25);
+
+    @include base.breakpointTablet {
+        height: 505px;
+    }
+
+    @include base.breakpointPc {
+        height: 500px;
+    }
+}
+
+.c-main__newsTtl {
+    color: base.$color--white;
+    height: 43px;
+    font-size: 3.6rem;
+    font-weight: 700;
+    position: absolute;
+    top: 61px;
+    left: 6.9vw;
+
+    @include base.breakpointTablet {
+        font-size: 6.0rem;
+        position: absolute;
+        top: 164px;
+        left: 10.3vw;
+    }
+
+    @include base.breakpointPc {
+        font-size: 6.0rem;
+        height: 70px;
+        position: absolute;
+        top: 169px;
+        left: 4.4vw;
+    }
+
+    .c-main_ttlTerms {
+        font-weight: 700;
+
+        .c-main_ttlCategories {
+            font-size: 3.7vw;
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            margin-bottom: 16px;
+
+            @include base.breakpointTablet {
+                font-size: 1.6vw;
+                grid-template-columns: repeat(4, max-content);
+            }
+
+            @include base.breakpointPc {
+                font-size: 0.7vw;
+            }
+
+            li {
+                list-style: none;
+                margin-right: 5px;
+
+                a::after {
+                    content: " ,";
+                }
+            }
+
+            li:last-child {
+                a::after {
+                    content: "";
+                }
+            }
+        }
+
+        .c-main_ttlTags {
+            font-size: 3.2vw;
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+
+            @include base.breakpointTablet {
+                font-size: 1.4vw;
+                grid-template-columns: repeat(4, max-content);
+            }
+
+            @include base.breakpointPc {
+                font-size: 0.6vw;
+            }
+
+            li {
+                list-style: none;
+                color: black;
+                background-color: #D9D9D9;
+                padding: 2px 17px;
+                border-radius: 11px;
+                margin: 0 8px 12px 0;
+
+                @include base.breakpointTablet {
+                    border-radius: 15px;
+                }
+
+                @include base.breakpointPc {
+                    border-radius: 16.5px;
+                }
+            }
+        }
+    }
+}
+
+.c-mainvisual__archiveNews {
+    height: 285px;
+    width: 100%;
+    position: relative;
+
+    &::before {
+        content: "";
+        height: 285px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 100;
+        left: 100;
+
+        @include base.breakpointPc {
+            height: 239px;
+        }
+    }
+
+    @include base.breakpointPc {
+        height: 239px;
+    }
+
+    img {
+        height: 285px;
+        width: 100%;
+        object-fit: cover;
+        opacity: 100;
+        object-position: 70% 0%;
+
+        @include base.breakpointTablet {
+            object-position: 40% 0%;
+        }
+
+        @include base.breakpointPc {
+            height: 239px;
+            object-position: left;
+        }
+
+    picture {
+        display: block;
+        object-fit: cover;
+        opacity: 100;
+        object-position: 0 -50%;
+    }
+    }
+}
+
+.c-main__archiveNewsTtl {
+    color: base.$color--white;
+    height: 43px;
+    font-size: 3.6rem;
+    font-weight: 700;
+
+    @include base.breakpointTablet {
+        font-size: 6.0rem;
+    }
+
+    @include base.breakpointPc {
+        font-size: 6.0rem;
+        height: 70px;
+    }
+
+    &-sub {
+        color: base.$color--white;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 12px;
+
+        @include base.breakpointTablet {
+            margin-top: 35px;
+            margin-left: 2.3vw;
+        }
+
+        @include base.breakpointPc {
+            margin-left: 1vw;
+            margin-top: 40px;
+        }
+    }
+}
+
 .c-main__pagettl {
     color: base.$color--white;
     height: 43px;

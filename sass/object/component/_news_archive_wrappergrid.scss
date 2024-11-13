@@ -1,0 +1,255 @@
+@use "../../foundation/base";
+
+.c-news_archive__wrapperGrid {
+    display: grid;
+    gap: 5vw;
+    grid-template-columns: 1fr;
+    margin: 5vw;
+
+    li {
+        list-style: none;
+    }
+    
+    @include base.breakpointTablet {
+        margin-right: 2.4vw;
+        margin-left: 5.1vw;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2.4vw;
+        margin-bottom: 12.7vw;
+    }
+
+    @include base.breakpointPc {
+        width: 80vw;
+        gap: 1.2vw;
+        margin: 5.2vw;
+    }
+
+    &-item {
+        width: 89.6vw;
+
+        @include base.breakpointTablet {
+            width: 90vw;
+            display: flex;
+        }
+
+        @include base.breakpointPc {
+            width: 70.4vw;
+            height: 11.7vw;
+        }
+
+        .c-news_archive__wrapperGrid-img {
+            height: 61.4vw;
+            width: 100%;
+            object-fit: cover;
+
+            img {
+                width: 100%;
+                aspect-ratio: 208/145;
+            }
+
+            @include base.breakpointTablet {
+                height: auto;
+                width: 25vw;
+                flex-direction: row;
+            }
+
+            @include base.breakpointPc {
+                width: 16.8vw;
+                height: 11.7vw;
+            }
+        }
+    }
+
+    &-ttl {
+        font-size: 2.0rem;
+        font-weight: 700;
+        color: #3c2b1c;
+        padding-top: 4.4vw;
+        margin-left: 0.3vw;
+
+        @include base.breakpointTablet {
+            margin: 0;
+            padding-top: 0;
+            font-size: 4.3vw;
+        }
+
+        @include base.breakpointPc {
+            font-size: 3.6rem;
+        }
+    }
+
+    &-txtbox {
+        height: auto;
+        color: #3c2b1c;
+        text-align: left;
+        position: relative;
+        height: 90vw;
+        min-height: 350px;
+        position: relative;
+
+        @include base.breakpointTablet {
+            padding-left: 4.1vw;
+            width: 64vw;
+            position: relative;
+            flex-direction: row;
+            height: auto;
+            min-height: 400px;
+        }
+
+        @include base.breakpointPc {
+            width: 53.5vw;
+            padding-left: 2.0vw;
+            min-height: 225px;
+        }
+
+        p {
+            color: #3c2b1c;
+            font-size: 1.6rem;
+            font-weight: 400;
+
+            @include base.breakpointTablet {
+                line-height: 23.76px;
+                font-size: 1.9vw;
+            }
+
+            @include base.breakpointPc {
+                font-size: 1.6rem;
+            }
+        }
+
+        .c-main_ttlTerms {
+            margin-top: 4.2vw;
+            font-weight: 400;
+
+            @include base.breakpointTablet {
+                margin-top: 0.95vw;
+            }
+
+            @include base.breakpointPc {
+                margin-top: 8px;
+            }
+    
+            .c-main_ttlCategories {
+                font-size: 3.2vw;
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 8px;
+    
+                @include base.breakpointTablet {
+                    font-size: 1.6vw;
+                    grid-template-columns: repeat(4, max-content);
+                }
+    
+                @include base.breakpointPc {
+                    font-size: 0.7vw;
+                }
+    
+                li {
+                    list-style: none;
+                    margin-right: 5px;
+    
+                    a::after {
+                        content: " ,";
+                    }
+                }
+    
+                li:last-child {
+                    a::after {
+                        content: "";
+                    }
+                }
+            }
+    
+            .c-main_ttlTags {
+                font-size: 3.2vw;
+                display: flex;
+                flex-wrap: wrap;
+    
+                @include base.breakpointTablet {
+                    font-size: 1.4vw;
+                    grid-template-columns: repeat(4, max-content);
+                }
+    
+                @include base.breakpointPc {
+                    font-size: 0.6vw;
+                }
+    
+                li {
+                    list-style: none;
+                    color: black;
+                    background-color: #D9D9D9;
+                    padding: 2px 17px;
+                    border-radius: 11px;
+                    margin: 0 8px 12px 0;
+    
+                    @include base.breakpointTablet {
+                        border-radius: 15px;
+                    }
+    
+                    @include base.breakpointPc {
+                        border-radius: 16.5px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-txt {
+ 
+        &__ttl {
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 5.6vw;
+            margin-bottom: 1.8vw;
+
+            @include base.breakpointTablet {
+                margin-bottom: 0.8vw;
+            }
+
+            @include base.breakpointPc {
+                margin-bottom: 13px;
+                font-size: 2.4rem;
+                margin-top: 2.3vw;
+            }
+        }
+    }
+}
+
+.c-detail__btn_news {
+    color: #3c2b1c;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    height: 11.3vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10.6vw;
+    margin-bottom: 11.6vw;
+    line-height: 11.6vw;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-decoration: underline;
+
+    @include base.breakpointTablet {
+        height: 5.0vw;
+        margin-top: 5.3vw;
+        margin-bottom: 0.5vw;
+        line-height: 5.0vw;
+        position: absolute;
+        font-size: 1.9vw;
+        bottom: 0;
+        right: 0;
+    }
+
+    @include base.breakpointPc {
+        margin-top: 0;
+        border-radius: 50px;
+        height: auto;
+        margin-bottom: 0;
+        line-height: 0.8vw;
+        font-size: 0.8vw;
+    }
+}

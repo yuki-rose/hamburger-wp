@@ -1,0 +1,171 @@
+@use "../../foundation/base";
+
+.c-recommendMenus {
+    .p-recommendMenu_ttl {
+        font-size: 6.4vw;
+        margin-top: 9.0vw;
+        margin-bottom: 4.5vw;
+
+        @include base.breakpointTablet {
+            font-size: 4.3vw;
+            margin-top: 14.3vw;
+            margin-bottom: 2.9vw;
+        }
+
+        @include base.breakpointPc {
+            font-size: 1.8vw;
+            margin-top: 6.2vw;
+            margin-bottom: 1.2vw;
+        }
+    }
+
+    .c-recommend__wrapperGrid {
+        display: grid;
+        gap: 5vw;
+        grid-template-columns: 1fr;
+
+        li {
+            list-style: none;
+        }
+        
+        @include base.breakpointTablet {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 7.1vw;
+            margin-bottom: 12.7vw;
+        }
+
+        @include base.breakpointPc {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.9vw;
+        }
+
+        &-item {
+            width: 89.3vw;
+
+            @include base.breakpointTablet {
+                width: 39.2vw;
+            }
+
+            @include base.breakpointPc {
+                width: 22.2vw;
+            }
+
+            img {
+                height: 61.4vw;
+                width: 100%;
+                object-fit: cover;
+
+                @include base.breakpointTablet {
+                    height: auto;
+                    width: 45vw;
+                    object-position: 35%;
+                    flex-direction: row;
+                }
+
+                @include base.breakpointPc {
+                    width: 22.2vw;
+                }
+            }
+        }
+
+        &-ttl {
+            font-size: 8.2vw;
+            font-weight: 700;
+            color: #3C2B1C;
+            margin-top: 2.3vw;
+
+            @include base.breakpointTablet {
+                margin: 0;
+                font-size: 3.8vw;
+            }
+
+            @include base.breakpointPc {
+                font-size: 3.6rem;
+            }
+        }
+
+        &-txtbox {
+            height: auto;
+            background-color: #F9F0E2;
+            color: #3C2B1C;
+            text-align: left;
+            padding: 4.2vw;
+            position: relative;
+            height: 66.5vw;
+            min-height: 310px;
+            position: relative;
+
+            @include base.breakpointTablet {
+                padding: 1.6vw;
+                padding-top: 2.8vw;
+                position: relative;
+                flex-direction: row;
+                height: auto;
+                min-height: 243px;
+            }
+
+            @include base.breakpointPc {
+                padding: 0.9vw;
+                width: 22.2vw;
+                padding-top: 1.9vw;
+            }
+
+            p {
+                color: #3C2B1C;
+                font-size: 1.6rem;
+                font-weight: 400;
+
+                @include base.breakpointTablet {
+                    line-height: 23.76px;
+                }
+
+                @include base.breakpointPc {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        &-txt {
+    
+            &__ttl {
+                color: #3C2B1C;
+                font-size: 1.6rem;
+                font-weight: 700;
+                margin-top: 5.6vw;
+                margin-bottom: 1.8vw;
+
+                @include base.breakpointTablet {
+                    margin-bottom: 0.8vw;
+                    margin-top: 2.8vw;
+                }
+
+                @include base.breakpointPc {
+                    margin-bottom: 13px;
+                    font-size: 2.4rem;
+                    margin-top: 0.8vw;
+                }
+            }
+        }
+    }
+
+    .c-detail__btn_recommend {
+        color: #3C2B1C;
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: block;
+        text-decoration: underline;
+        text-align: right;
+
+        @include base.breakpointTablet {
+            margin-top: 5.3vw;
+            margin-bottom: 0.5vw;
+            line-height: 5.0vw;
+        }
+
+        @include base.breakpointPc {
+            margin-top: 3.1vw;
+            margin-bottom: 0;
+            line-height: 3.9vw;
+        }
+    }
+}

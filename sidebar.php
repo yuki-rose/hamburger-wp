@@ -29,6 +29,12 @@
             <?php wp_reset_postdata(); //取得中の投稿情報をリセット ?>
             <?php else: ?>
             <?php endif; } ?>
+
+            <h3 class="mainMenu">
+                <a href="<?php echo esc_url(home_url('/home')); ?>">
+                    お知らせ
+                </a>
+            </h3>
         </div>
     </nav>
 </aside>

@@ -4,22 +4,38 @@
     <?php if( have_posts() ): //メインループの記述
         while( have_posts() ): the_post(); ?>
         <div <?php post_class(); //自動で投稿情報のクラスを付ける?>>
-            <figure class="c-mainvisual__single">
+            <figure class="c-mainvisual__news">
             <?php //メインビジュアル//
                 if ( has_post_thumbnail()): //サムネイル画像があったら ?>
                     <?php the_post_thumbnail( 'full' ); //サムネイルを表示 ?>
-                    <figcaption class="c-main__singlettl"><?php the_title(); ?></figcaption>
                 <?php else://なければ指定画像を表示 ?>
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ham-burger-with-vegetables-pc1639557.jpg" alt="ハンバーガーの写真">
-                    <figcaption class="c-main__singlettl"><?php the_title(); ?></figcaption>
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/news-image.png" alt="news paper">
                 <?php endif; ?>
+                <figcaption class="c-main__newsTtl"><?php the_title(); ?>
+                    <div class="c-main_ttlTerms">
+                        <ul class="c-main_ttlCategories">
+                            <?php $terms = get_terms('news_category'); //タクソノミーのスラッグ名を記載する
+                                foreach ($terms as $term) {
+                                    echo '<li><a href="' . get_term_link($term) . '">' . $term->name . '&nbsp(' . esc_html( $term->count ) . ')</a>
+                                    </li>';
+                                } ?>
+                        </ul>
+                        <ul class="c-main_ttlTags">
+                            <?php $terms = get_terms('news_tag'); //タクソノミーのスラッグ名を記載する
+                                foreach ($terms as $term) {
+                                    echo '<li><a href="' . get_term_link($term) . '">' . $term->name . '&nbsp(' . esc_html( $term->count ) . ')</a>
+                                    </li>';
+                                } ?>
+                        </ul>
+                    </div>
+                </figcaption>
+                
             </figure>
                 
             <div class="c-single_main_contents">
             <?php //記事の内容
                 the_content();
             ?>
-
             </div>
             <?php $args = array(
                     'before' => '<div class="c-single_pagination">',

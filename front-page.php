@@ -1,9 +1,18 @@
+<!-- 
+ /*
+Template Name:フロントページ
+*/ 
+-->
+
 <?php get_header(); //header.phpを読み込み ?> 
 
 <main class="l-main">
     <figure class="c-mainvisual">
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/mainvisual-pc@2x.jpg" alt="ハンバーガーの写真">
         <figcaption class="c-main__sitettl">ダミーサイト</figcaption>
+        <?php if ( switch_date("2024-10-03 02:00:00", "2024-10-04 00:00:00", "") === true ) { ?>
+            <p>ネコ</p>
+        <?php } ?>
     </figure>
     
 

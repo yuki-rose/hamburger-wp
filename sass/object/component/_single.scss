@@ -366,4 +366,40 @@
             margin-bottom: 3.1vw;
         }
     }
+
+    .p-recommendInfo {
+        .c-recommendTtl {
+            font-size: 6.4vw;
+            margin-top: 21.3vw;
+            margin-bottom: 4.2vw;
+
+            @include base.breakpointTablet {
+                font-size: 4.3vw;
+                margin-top: 14.3vw;
+                margin-bottom: 2.8vw;
+            }
+
+            @include base.breakpointPc {
+                font-size: 1.8vw;
+                margin-top: 6.2vw;
+                margin-bottom: 1.2vw;
+            }
+        }
+
+        .c-recommendItem {
+            font-size: 4.2vw;
+            text-decoration: underline;
+            margin-bottom: 9.0vw;
+
+            @include base.breakpointTablet {
+                font-size: 1.9vw;
+                margin-bottom: 14.3vw;
+            }
+
+            @include base.breakpointPc {
+                font-size: 0.8vw;
+                margin-bottom: 6.2vw;
+            }
+        }
+    }
 }

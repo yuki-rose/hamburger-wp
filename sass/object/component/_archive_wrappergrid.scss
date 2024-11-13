@@ -79,6 +79,7 @@
         position: relative;
         height: 90vw;
         min-height: 350px;
+        position: relative;
 
         @include base.breakpointTablet {
             padding-left: 4.1vw;

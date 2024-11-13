@@ -105,14 +105,22 @@
 
     //アーカイブの表示件数を変更する
     function change_posts_per_page($query) {
-        if ( is_admin() || ! $query->is_main_query() )
+        if ( is_admin() || ! $query->is_main_query() ){
             return;
-     
-        if ( $query->is_archive() ) {
-            $query->set( 'posts_per_page', 3 );
         }
+
+        if ( $query->is_home()) {
+            $query->set( 'post_type', 'news' );
+            $query->set( 'posts_per_page', 2 );
+        }
+        elseif ( $query->is_post_type_archive('news')) {
+            $query->set( 'posts_per_page', 2 );
+        }
+        elseif ( $query->is_archive() ) { //先に判定されると他のアーカイブより優先される
+            $query->set( 'posts_per_page', 3 );
+        } 
     }
-    add_action( 'pre_get_posts', 'change_posts_per_page' );
+    add_action( 'pre_get_posts', 'change_posts_per_page', 1 );
 
     //記事からh2タグを抜き出す
     function get_h2() {
@@ -176,7 +184,7 @@
     add_action( 'parse_query', 'empty_search_redirect' );
 
     //カテゴリーに順番を指定するカスタムフィールドを追加
-        //ターム追加時にフィールドを表示
+    //ターム追加時にフィールドを表示
     function add_taxonomy_fields($tag) {
         wp_nonce_field(basename(__FILE__), 'term_order_nonce'); //nonceの設定
         $default_nam = '';
@@ -224,21 +232,22 @@
     
     //フィールドに入力した値を保存する
     function save_taxonomy_fileds($term_id) {
-        if (!empty($_POST) && //ポストデータが空ではなく
-            check_admin_referer(basename(__FILE__), 'term_order_nonce')) { //nonceを持っていて管理画面から参照されたものである場合
-            // 既に保存されている値を取得
-            $old_value = get_term_meta_text($term_id);
-            // 新しい値を取得
-            $new_value = isset($_POST['term_order']) ? //カスタムフィールドに値がセットされているか
-                sanitize_text_field($_POST['term_order']) : //セットされていたらサニタイズする
-                $new_value = NULL; //セットされていなければ処理しない
-        
-            if ($new_value === '') { //新しい値と等しい場合
-                update_term_meta($term_id, '_order', NULL); //仮データを入力する
-            } 
-            elseif ($old_value !== $new_value) { //保存されていた値と新しい値が異なる場合
-                update_term_meta($term_id, '_order', $new_value); //タームのメタ情報を更新する
-            }
+        if ( !isset( $_POST[ 'term_order_nonce' ] ) || !check_admin_referer(basename(__FILE__), 'term_order_nonce')) { //nonceを持っていないか管理画面から参照されたものでない場合
+            return; //処理を中断する
+        }
+
+        // 既に保存されている値を取得
+        $old_value = get_term_meta_text($term_id);
+        // 新しい値を取得
+        $new_value = isset($_POST['term_order']) ? //カスタムフィールドに値がセットされているか
+            sanitize_text_field($_POST['term_order']) : //セットされていたらサニタイズする
+            $new_value = NULL; //セットされていなければ処理しない
+            
+        if ($new_value === '') { //新しい値と等しい場合
+            update_term_meta($term_id, '_order', NULL); //仮データを入力する
+        } 
+        elseif ($old_value !== $new_value) { //保存されていた値と新しい値が異なる場合
+            update_term_meta($term_id, '_order', $new_value); //タームのメタ情報を更新する
         }
     }
     add_action('create_term', 'save_taxonomy_fileds');
@@ -301,3 +310,181 @@
         return $pieces;
     }
     add_filter( 'terms_clauses', 'sortable_column_rule_for_order', 10, 3 );
+
+    //カスタム投稿追加(お知らせ)
+    function add_custom_post_type() {
+        $labels = array(    //管理画面でのラベル設定
+            'name' => 'お知らせ',   //カスタム投稿の名前
+            'singular_name' => 'お知らせ',  //カスタム投稿の名前(単数形)
+            'search_items' => 'お知らせを検索', //一覧ページの検索ボタンのラベル
+            'view_item' => 'お知らせを表示', //編集ページの表示ボタンのラベル
+            'all_items' => 'お知らせ一覧',
+        );
+
+        register_post_type(
+            'news', //カスタム投稿名
+            array( 'labels' => $labels,
+                    'public' => true,   //公的使用を目的とする
+                    'publicly_queryable' => true,   //URLのパラメータでアーカイブページにクエリを実行可能に
+                    'has_archive' => true,  //アーカイブを有効にする
+                    'rewrite' => [ 'slug' => 'news'],   //パーマリンクのスラッグを指定
+                    'supports' => array( 'title',   //投稿タイプをサポートするコア機能
+                                        'editor',   //本文
+                                        'thumbnail',
+                                        'excerpt',
+                                        'custom-fields'
+                                     ),
+                    'show_in_rest'  => true,    //ブロックエディターを有効にする
+            )
+        );
+
+        register_taxonomy(  //カスタム投稿にタグ機能を追加
+            'news_tag', //タクソノミー名
+            'news', //どの投稿タイプで使用するか
+            array( 'label' => 'タグ',
+                'hierarchical' => false, //カテゴリーの場合はtrue
+                'show_in_rest'  => true,    //ブロックエディターを有効にする
+                'rewrite' => true,
+            )
+        );
+
+        register_taxonomy(  //カスタム投稿にカテゴリー機能を追加
+            'news_category',
+            'news',
+            array( 'label' => 'カテゴリー',
+                'hierarchical' => true,
+                'show_in_rest'  => true,    //ブロックエディターを有効にする
+                'rewrite' => true,
+            )
+        );
+    }
+    add_action( 'init', 'add_custom_post_type' );
+
+    //カスタム投稿のタグをチェックボックスに変更
+    function change_term_to_checkbox() {
+        $args = get_taxonomy( 'news_tag' );
+        $args -> hierarchical = true;   //Gutenberg用
+        $args -> meta_box_cb = 'post_categories_meta_box';  //クラシックエディター用
+        register_taxonomy( 'news_tag', 'news', $args );  //カスタムタクソノミー名、カスタム投稿タイプ名
+      }
+    add_action( 'init', 'change_term_to_checkbox', 999 );
+
+    //時限設定
+    function switch_date($start, $end, $flag=NULL){    
+        $now_date = new Datetime();
+        $now_date->setTimeZone(new DateTimeZone("Asia/Tokyo"));
+        $now_stamp = ( isset($_GET["ns"]) && preg_match('/^[0-9]{12}$/', $_GET["ns"]) ) ? strtotime($_GET["ns"]) : strtotime($now_date->format("Y-m-d H:i:s"));
+        $return_flag = false;
+    
+        if( strtotime($start) <= $now_stamp && $now_stamp < strtotime($end) ){
+            $return_flag = true;
+        }
+        
+        return $return_flag;
+    }
+
+    //管理画面「投稿」の表示変更
+    function Change_menulabel() {
+        global $menu;
+        global $submenu;
+        $name = 'メニュー';
+        $menu[5][0] = $name;
+        $submenu['edit.php'][5][0] = $name.'一覧';
+        $submenu['edit.php'][10][0] = '新規'.$name.'投稿';
+    }
+    function Change_objectlabel() {
+        global $wp_post_types;
+        $name = 'メニュー';
+        $labels = &$wp_post_types['post']->labels;
+        $labels->name = $name;
+        $labels->singular_name = $name;
+        $labels->add_new = _x('追加', $name);
+        $labels->add_new_item = $name.'の新規追加';
+        $labels->edit_item = $name.'の編集';
+        $labels->new_item = '新規'.$name;
+        $labels->view_item = $name.'を表示';
+        $labels->search_items = $name.'を検索';
+        $labels->not_found = $name.'が見つかりませんでした';
+        $labels->not_found_in_trash = 'ゴミ箱に'.$name.'は見つかりませんでした';
+    }
+    add_action( 'init', 'Change_objectlabel' );
+    add_action( 'admin_menu', 'Change_menulabel' );
+
+    //メニューの投稿にカスタムフィールドを追加
+    // カスタムメタボックスの追加
+    function custom_link_meta_box() {
+        add_meta_box(
+            'custom_link_meta',         // ID
+            'リンク付きテキスト',         // タイトル
+            'custom_link_meta_callback', // コールバック関数
+            'post'                       // 投稿タイプ
+        );
+    }
+    add_action('add_meta_boxes', 'custom_link_meta_box');
+
+    // メタボックスの表示内容を定義
+    function custom_link_meta_callback($post) {
+        // 現在のカスタムフィールドの値を取得
+        $link_text = get_post_meta($post->ID, '_custom_link_text', true);
+        $link_url = get_post_meta($post->ID, '_custom_link_url', true);
+        
+        // テキストとURLの入力欄を表示
+        echo '<label for="custom_link_text">リンクテキスト:</label>';
+        echo '<input type="text" id="custom_link_text" name="custom_link_text" value="' . esc_attr($link_text) . '" /><br><br>';
+        
+        echo '<label for="custom_link_url">リンクURL:</label>';
+        echo '<input type="text" id="custom_link_url" name="custom_link_url" value="' . esc_attr($link_url) . '" />';
+    }
+
+    // フィールド値の保存処理
+    function save_custom_link_meta($post_id) {
+        if (array_key_exists('custom_link_text', $_POST)) {
+            update_post_meta(
+                $post_id,
+                '_custom_link_text',
+                $_POST['custom_link_text']
+            );
+        }
+        if (array_key_exists('custom_link_url', $_POST)) {
+            update_post_meta(
+                $post_id,
+                '_custom_link_url',
+                $_POST['custom_link_url']
+            );
+        }
+    }
+    add_action('save_post', 'save_custom_link_meta');
+
+    //カスタムフィールドを投稿の本文中に挿入するショートコード
+    function display_custom_link_shortcode() {
+        $link_text = get_post_meta(get_the_ID(), '_custom_link_text', true);
+        $link_url = get_post_meta(get_the_ID(), '_custom_link_url', true);
+    
+        // テキストまたはリンクを生成
+        if (!empty($link_text) && !empty($link_url)) {
+            // リンクテキストとURLが両方ある場合、リンク付きで表示
+            return '<div class="p-recommendInfo">
+                        <h2 class="c-recommendTtl">&#9733;おすすめ情報</h2>
+                        <h3 class="c-recommendItem">
+                            <a href="' . esc_url($link_url) . '">' . esc_html($link_text) . '</a>
+                        </h3>
+                    </div>';
+        } elseif (!empty($link_text)) {
+            // テキストのみがある場合、テキストだけを表示
+            return '<div class="p-recommendInfo">
+                        <h2 class="c-recommendTtl">&#9733;おすすめ情報</h2>
+                        <h3 class="c-recommendItem">
+                            '. esc_html($link_text) . '
+                        </h3>
+                    </div>';
+        } else {
+            //テキストがなければトップへのリンクを表示
+            return '<div class="p-recommendInfo">
+                        <h2 class="c-recommendTtl">&#9733;おすすめ情報</h2>
+                        <h3 class="c-recommendItem">
+                            <a href="'. esc_url(home_url('/home')) . '">ブログのトップページへ</a>
+                        </h3>
+                    </div>';
+        }
+    }
+    add_shortcode('custom_link', 'display_custom_link_shortcode');

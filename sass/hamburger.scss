@@ -15,4 +15,11 @@
 @use "./object/component/single_visual";
 @use "./layout/contents_wrapper";
 @use "./layout/main";
+<<<<<<< HEAD
 @use "./object/project/notfound";
+=======
+@use "./object/project/notfound";
+@use "./object/utility/new_mark";
+@use "./object/component/news_archive_wrappergrid";
+@use "./object/component/recommendMenus";
+>>>>>>> c1cbf68 (advanced)
