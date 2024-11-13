@@ -2275,7 +2275,6 @@ a {
 @media (min-width: 960px) {
   .c-news_archive__wrapperGrid-item {
     width: 70.4vw;
-    height: 11.7vw;
   }
 }
 .c-news_archive__wrapperGrid-item .c-news_archive__wrapperGrid-img {
@@ -2336,7 +2335,8 @@ a {
     position: relative;
     flex-direction: row;
     height: auto;
-    min-height: 400px;
+    min-height: 0;
+    padding-bottom: 5vw;
   }
 }
 @media (min-width: 960px) {

@@ -34,7 +34,7 @@
 
         @include base.breakpointPc {
             width: 70.4vw;
-            height: 11.7vw;
+            // height: 11.7vw;
         }
 
         .c-news_archive__wrapperGrid-img {
@@ -93,7 +93,8 @@
             position: relative;
             flex-direction: row;
             height: auto;
-            min-height: 400px;
+            min-height: 0;
+            padding-bottom: 5vw;
         }
 
         @include base.breakpointPc {
